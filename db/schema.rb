@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2021_02_02_223339) do
 
+ActiveRecord::Schema.define(version: 2021_02_02_222005) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +29,10 @@ ActiveRecord::Schema.define(version: 2021_02_02_223339) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "city"
+    t.integer "rank"
+    t.boolean "first_place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

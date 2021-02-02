@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   get '/heroes/:id/edit', to: 'heroes#edit'
   patch '/heroes/:id', to: 'heroes#update'
   delete '/heroes/:id', to: 'heroes#destroy'
-  # get '/teams/:id', to: "teams#show"
+  post '/teams', to: 'teams#create'
+  get '/teams/:id', to: "teams#show"
+  get '/teams/:id/edit', to: 'teams#edit'
+  patch '/teams/:id', to: 'teams#update'
+  delete '/teams/:id', to: 'teams#destroy'
 end
