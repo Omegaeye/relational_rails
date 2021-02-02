@@ -1,0 +1,8 @@
+<form action="/heroes" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new hero:</p>
+  <input type='text' name='hero[name]'/><br/>
+  <p>Please choose Warrior, Mage, Rouge</p>
+  <input type='text' type='hero[type]'/><br/>
+  <input type='submit'/>
+</form>

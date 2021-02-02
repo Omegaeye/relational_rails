@@ -40,6 +40,7 @@ class TeamsController < ApplicationController
       created_at: Time.now,
       updated_at: Time.now
       })
+      require "pry"; binding.pry
     team.save
     redirect_to '/teams'
   end

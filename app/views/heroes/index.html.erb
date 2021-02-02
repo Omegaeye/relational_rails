@@ -1,0 +1,23 @@
+<h1>All Heroes</h1>
+
+<% @heros.each do |hero| %>
+  <h3><a href="/heroes/<%= hero.id %>"><%= hero.name %></a></h3>
+  <p><%= hero.type %></p>
+  <p><%= hero.level %></p>
+  <p><%= hero.alive %></p>
+  <p><%= hero.created_at %></p>
+  <p><%= hero.updated_at %></p>
+  <a href="/heroes/<%= hero.id  %>/edit">Edit</a>
+  <form action="/heroes/<%= hero.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>
+
+<form action="/heroes/new" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="New Hero">
+  <input type="submit" value="New Hero"/>
+</form>
+<a href="/">Intro Page</a>
