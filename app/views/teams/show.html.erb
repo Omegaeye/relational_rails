@@ -1,9 +1,14 @@
 <a href="/teams">Team Index</a>
 
-<h1><%= @team.title %></h1>
-<p><%= @team.name %><p>
-<p><%= @team.city %><p>
-<p><%= @team.rank %><p>
-<p><%= @team.first_place %><p>
-<p><%= @team.created_at %><p>
-<p><%= @team.updated_at %><p>
+<div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+  <h2><%= @team.city %> <%= @team.name %></h2>
+  <p><b>Rank: </b><%= @team.rank %></p>
+  <p><b>First Place Team: </b><%= @team.first_place %></p>
+  <p><b>Created At: </b><%= @team.created_at %></p>
+  <p><b>Updated At: </b><%= @team.updated_at %></p>
+</div>
+
+<form style="padding:20px;" action="/teams/<%= @team.id  %>/edit" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Update Team">
+</form>
