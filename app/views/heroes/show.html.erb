@@ -1,0 +1,10 @@
+<a href="/heroes">Hero Index</a>
+
+<h1><%= @hero.name %></h1>
+
+<p><%= @hero.type %></p>
+<p><%= @hero.level %></p>
+<p><%= @hero.alive %></p>
+<p><%= @hero.created_at %></p>
+<p><%= @hero.updated_at %></p>
+<a href="/heroes/<%= @hero.id %>/edit">Edit</a>
