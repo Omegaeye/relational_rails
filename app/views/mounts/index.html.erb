@@ -1,0 +1,18 @@
+<h1>All Mounts</h1>
+
+<% @mounts.each do |mount| %>
+  <h3><a href="/mounts/<%= mount.id %>"><%= mount.name %></a></h3>
+  <p><%= mount.heroes_id %></p>
+  <p><%= mount.level %></p>
+  <p><%= mount.fly %></p>
+  <p><%= mount.created_at %></p>
+  <p><%= mount.updated_at %></p>
+  <a href="/mounts/<%= mount.id  %>/edit">Edit</a>
+  <form action="/mounts/<%= mount.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>
+
+<a href="/">Intro Page</a>

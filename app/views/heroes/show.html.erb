@@ -8,3 +8,9 @@
 <p><%= @hero.created_at %></p>
 <p><%= @hero.updated_at %></p>
 <a href="/heroes/<%= @hero.id %>/edit">Edit</a>
+
+<form action="/mounts/new" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="New Mount">
+  <input type="submit" value="New Mount"/>
+</form>

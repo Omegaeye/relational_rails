@@ -27,4 +27,16 @@ Rails.application.routes.draw do
   get '/heroes/:id/edit', to: 'heroes#edit'
   patch '/heroes/:id', to: 'heroes#update'
   delete '/heroes/:id', to: 'heroes#destroy'
+  post '/teams', to: 'teams#create'
+  get '/teams/:id', to: "teams#show"
+  get '/teams/:id/edit', to: 'teams#edit'
+  patch '/teams/:id', to: 'teams#update'
+  delete '/teams/:id', to: 'teams#destroy'
+  get '/mounts', to: 'mounts#index'
+  get '/mounts/new', to: 'mounts#new'
+  post '/mounts', to: 'mounts#create'
+  get '/mounts/:id', to: "mounts#show"
+  get '/mounts/:id/edit', to: 'mounts#edit'
+  patch '/mounts/:id', to: 'mounts#update'
+  delete '/mounts/:id', to: 'mounts#destroy'
 end

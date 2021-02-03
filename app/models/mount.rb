@@ -1,0 +1,3 @@
+class Mount < ApplicationRecord
+
+end

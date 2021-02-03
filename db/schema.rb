@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2021_02_03_005217) do
 ActiveRecord::Schema.define(version: 2021_02_03_003656) do
 
   # These are extensions that must be enabled in order to support this database
@@ -23,6 +24,14 @@ ActiveRecord::Schema.define(version: 2021_02_03_003656) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "mounts", force: :cascade do |t|
+    t.string "name"
+    t.integer "heroes_id"
+    t.integer "level"
+    t.boolean "fly"
+    t.datetime "created_at"
+    t.datetime "updated_at"
 
   create_table "players", force: :cascade do |t|
     t.string "name"
