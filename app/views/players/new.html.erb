@@ -1,0 +1,14 @@
+<form action="/players" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="name">Name:</label><br>
+  <input type="text" name="player[name]" value=""><br>
+
+  <label for="age">Age:</label><br>
+  <input type="text" name="player[age]" value=""><br><br>
+
+  <label for="position">Position:</label><br>
+  <input type="text" name="player[position]" value=""><br><br>
+
+  <input type="submit" value="Create">
+</form>
