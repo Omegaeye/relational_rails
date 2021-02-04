@@ -22,8 +22,8 @@ RSpec.describe "teams show page", type: :feature do
 
     visit "/teams/#{team.id}"
 
-    expect(page).to have_link("#{player.name}")
-    click_link "#{player.name}"
-    expect(current_path).to eq("/players/#{player.id}")
+    expect(page).to have_link("All #{team.name} Players")
+    click_link "All #{team.name} Players"
+    expect(current_path).to eq("/teams/#{team.id}/players")
   end
 end

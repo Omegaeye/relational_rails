@@ -19,11 +19,7 @@
   </form>
 </div>
 
-
-<h3>Players:</h3>
-<% @team.players.each do |player| %>
-  <p><a href="/players/<%= player.id %>">* <%= player.name %></a></p>
-<% end %>
+<a href="/teams/<%= @team.id %>/players"><h3> All <%= @team.name %> Players</h3></a>
 
 <form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
