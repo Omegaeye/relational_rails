@@ -9,7 +9,6 @@ class HeroesController < ApplicationController
   def create
     hero = Hero.new({
      name: params[:hero][:name],
-     type: params[:hero][:type],
      alive: true,
      level: 1,
      created_at: Time.now,

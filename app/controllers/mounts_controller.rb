@@ -1,24 +1,26 @@
-class MountsController < HeroesController
+class MountsController < ApplicationController
   def index
     @mounts = Mount.all
   end
 
   def new
+    @hero = Hero.find(params[:id])
   end
 
   def create
+    @hero = Hero.find(params[:id])
     mount = Mount.new({
      name: params[:mount][:name],
-     heroes_id: 1,
      fly: false,
      level: 1,
      created_at: Time.now,
-     updated_at: Time.now
+     updated_at: Time.now,
+     hero_id: @hero.id
      })
 
    mount.save
 
-   redirect_to '/mounts'
+   redirect_to "/mounts"
   end
 
   def show
