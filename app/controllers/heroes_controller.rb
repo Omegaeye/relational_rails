@@ -36,6 +36,7 @@ class HeroesController < ApplicationController
     hero = Hero.find(params[:id])
     hero.update({
     name: params[:hero][:name],
+    alive: params[:hero][:alive],
     updated_at: Time.now
     })
   hero.save
