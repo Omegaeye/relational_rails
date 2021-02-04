@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_005217) do
+ActiveRecord::Schema.define(version: 2021_02_04_013225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
-    t.string "type"
     t.integer "level"
     t.boolean "alive"
     t.datetime "created_at"
@@ -26,11 +25,12 @@ ActiveRecord::Schema.define(version: 2021_02_03_005217) do
 
   create_table "mounts", force: :cascade do |t|
     t.string "name"
-    t.integer "heroes_id"
     t.integer "level"
     t.boolean "fly"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "hero_id"
+    t.index ["hero_id"], name: "index_mounts_on_hero_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -52,4 +52,5 @@ ActiveRecord::Schema.define(version: 2021_02_03_005217) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "mounts", "heros"
 end
