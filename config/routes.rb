@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   delete '/teams/:id', to: 'teams#destroy'
 
   get '/players', to: 'players#index'
-  get '/players/new', to: 'players#new'
-  get '/players', to: 'players#create'
-  post '/players', to: 'players#create'
+  get '/teams/:id/players/new', to: 'players#new'
+  get '/teams/:id/players', to: 'players#create'
+  post 'teams/:id/players', to: 'players#create'
   get '/players/:id', to: "players#show"
   get '/players/:id/edit', to: 'players#edit'
   patch '/players/:id', to: 'players#update'
@@ -27,11 +27,11 @@ Rails.application.routes.draw do
   get '/heroes/:id/edit', to: 'heroes#edit'
   patch '/heroes/:id', to: 'heroes#update'
   delete '/heroes/:id', to: 'heroes#destroy'
-  post '/teams', to: 'teams#create'
-  get '/teams/:id', to: "teams#show"
-  get '/teams/:id/edit', to: 'teams#edit'
-  patch '/teams/:id', to: 'teams#update'
-  delete '/teams/:id', to: 'teams#destroy'
+  # post '/teams', to: 'teams#create'
+  # get '/teams/:id', to: "teams#show"
+  # get '/teams/:id/edit', to: 'teams#edit'
+  # patch '/teams/:id', to: 'teams#update'
+  # delete '/teams/:id', to: 'teams#destroy'
   get '/mounts', to: 'mounts#index'
   get '/mounts/new', to: 'mounts#new'
   post '/mounts', to: 'mounts#create'
