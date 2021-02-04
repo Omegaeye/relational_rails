@@ -19,7 +19,7 @@ class PlayersController < ApplicationController
       team_id: @team.id
       })
     player.save
-    redirect_to "/players"
+    redirect_to "/teams/#{@team.id}/players"
   end
 
   def update
