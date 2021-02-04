@@ -7,7 +7,6 @@ class CreatePlayer < ActiveRecord::Migration[5.2]
       t.boolean :starter
       t.datetime :created_at
       t.datetime :updated_at
-      t.integer :team_id
     end
   end
 end
