@@ -3,6 +3,10 @@ class HeroesController < ApplicationController
     @heros = Hero.all
   end
 
+  def p_c_index
+    @hero = Hero.find(params[:id])
+  end
+
   def new
   end
 

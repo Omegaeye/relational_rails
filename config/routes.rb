@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   delete '/players/:id', to: 'players#destroy'
 
   get '/heroes', to: 'heroes#index'
+  get '/heroes/:id/mounts', to: 'heroes#p_c_index'
   get '/heroes/new', to: 'heroes#new'
   post '/heroes', to: 'heroes#create'
   get '/heroes/:id', to: 'heroes#show'
