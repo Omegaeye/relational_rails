@@ -20,7 +20,7 @@ class MountsController < ApplicationController
 
    mount.save
 
-   redirect_to "/mounts"
+   redirect_to "/heroes/#{@hero.id}/mounts"
   end
 
   def show
