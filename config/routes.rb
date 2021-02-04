@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   delete '/teams/:id', to: 'teams#destroy'
 
   get '/players', to: 'players#index'
-  get '/players/new', to: 'players#new'
-  get '/players', to: 'players#create'
-  post '/players', to: 'players#create'
+  get '/teams/:id/players/new', to: 'players#new'
+  get '/teams/:id/players', to: 'players#create'
+  post 'teams/:id/players', to: 'players#create'
   get '/players/:id', to: "players#show"
   get '/players/:id/edit', to: 'players#edit'
   patch '/players/:id', to: 'players#update'
@@ -30,7 +30,6 @@ Rails.application.routes.draw do
 
   get '/mounts', to: 'mounts#index'
   get '/heroes/:id/mounts/new', to: 'mounts#new'
-  # get '/mounts/new', to: 'mounts#new'
   post '/heroes/:id/mounts', to: 'mounts#create'
   get '/mounts/:id', to: "mounts#show"
   get '/mounts/:id/edit', to: 'mounts#edit'

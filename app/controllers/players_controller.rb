@@ -4,10 +4,11 @@ class PlayersController < ApplicationController
   end
 
   def new
-
+    @team = Team.find(params[:id])
   end
 
   def create
+    @team = Team.find(params[:id])
     player = Player.new({
       name: params[:player][:name],
       position: params[:player][:position],
@@ -15,10 +16,10 @@ class PlayersController < ApplicationController
       starter: false,
       created_at: Time.now,
       updated_at: Time.now,
-      team_id: 1
+      team_id: @team.id
       })
     player.save
-    redirect_to '/players'
+    redirect_to "/players"
   end
 
   def update
