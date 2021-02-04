@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete '/teams/:id', to: 'teams#destroy'
 
   get '/players', to: 'players#index'
+  get 'teams/:id/players', to: 'teams#p_c_index'
   get '/teams/:id/players/new', to: 'players#new'
   get '/teams/:id/players', to: 'players#create'
   post 'teams/:id/players', to: 'players#create'
