@@ -1,20 +1,26 @@
 <a href="/heroes">Hero Index</a>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
-<h1><%= @hero.name %></h1>
+  <h1><%= @hero.name %></h1>
 
-<p>level: <%= @hero.level %></p>
-<p>alive?: <%= @hero.alive %></p>
-<p>created_at: <%= @hero.created_at %></p>
-<p>updated_at: <%= @hero.updated_at %></p>
-<h3>Mounts:</h3>
-<% @hero.mounts.each do |mount| %>
-  <p><a href="/mounts/<%= mount.id %>">* <%= mount.name %></a></p>
-<% end %>
-  </div>
-<a href="/heroes/<%= @hero.id %>/edit">Edit</a>
+    <p>level: <%= @hero.level %></p>
+    <p>alive?: <%= @hero.alive %></p>
+    <p>created_at: <%= @hero.created_at %></p>
+    <p>updated_at: <%= @hero.updated_at %></p>
 
-<form action="/heroes/<%= @hero.id %>/mounts/new" method="get">
+    <a href="/heroes/<%= @hero.id %>/mounts"><h3> Mounts</h3></a>
+  <form action="/heroes/<%= @hero.id %>/mounts/new" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Add New Mount">
+  </form>
+</div>
+
+<form action="/heroes/<%= @hero.id %>/edit" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="New Mount">
-  <input type="submit" value="New Mount"/>
+  <input type="submit" value="Update Hero"/>
+</form>
+
+<form action="/heroes/<%= @hero.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Extinguish Hero"/>
 </form>

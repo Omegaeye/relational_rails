@@ -1,6 +1,6 @@
 <a href="/heroes/<%= @hero.id %>"><%= @hero.name %> Hero Page</a>
 
-<h1>All <%= @hero.name %> Mounts</h1>
+<h1><%= @hero.name %> Mounts</h1>
 
 <% @hero.mounts.each do |mount| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
