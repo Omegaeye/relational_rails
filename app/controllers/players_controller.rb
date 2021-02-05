@@ -13,7 +13,7 @@ class PlayersController < ApplicationController
       name: params[:player][:name],
       position: params[:player][:position],
       age: params[:player][:age],
-      starter: false,
+      starter: true,
       created_at: Time.now,
       updated_at: Time.now,
       team_id: @team.id

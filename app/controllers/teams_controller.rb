@@ -7,6 +7,12 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
+  def over_age
+    binding.pry
+    @team = Team.find(params[:id]).players.over_age(params[:age])
+    redirect_to "teams/#{@teams.id}/players"
+  end
+
   def show
     @team = Team.find(params[:id])
   end
