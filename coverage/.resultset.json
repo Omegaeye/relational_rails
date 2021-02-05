@@ -288,26 +288,6 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/spec/features/teams/index_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/kn/Projects/relational_rails/app/models/hero.rb": {
         "lines": [
           1,
@@ -326,6 +306,13 @@
         "lines": [
           1,
           1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
           1,
           null,
           null,
@@ -333,13 +320,6 @@
           0,
           null,
           null,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
           null,
           null,
           null,
@@ -351,7 +331,7 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
@@ -382,68 +362,14 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/app/models/team.rb": {
+      "/Users/kn/Projects/relational_rails/app/models/mount.rb": {
         "lines": [
           1,
           1,
-          null
-        ]
-      },
-      "/Users/kn/Projects/relational_rails/app/controllers/teams_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
           null
         ]
       }
     },
-    "timestamp": 1612475583
+    "timestamp": 1612476464
   }
 }
