@@ -2,6 +2,11 @@
 
 <h1>All <%= @team.name %> Players</h1>
 
+<form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Add New Player">
+</form>
+
 <% @team.players.each do |player| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>

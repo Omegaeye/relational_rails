@@ -6,17 +6,20 @@
   <p><b>First Place Team: </b><%= @team.first_place %></p>
   <p><b>Created At: </b><%= @team.created_at %></p>
   <p><b>Updated At: </b><%= @team.updated_at %></p>
+
+  <form style="padding:20px;" action="/teams/<%= @team.id  %>/edit" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Update Team">
+  </form>
+
+  <form action="/teams/<%= @team.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete"/>
+  </form>
 </div>
 
-<form style="padding:20px;" action="/teams/<%= @team.id  %>/edit" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="Update Team">
-</form>
-
-<h3>Players:</h3>
-<% @team.players.each do |player| %>
-  <p><a href="/players/<%= player.id %>">* <%= player.name %></a></p>
-<% end %>
+<a href="/teams/<%= @team.id %>/players"><h3> All <%= @team.name %> Players</h3></a>
 
 <form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

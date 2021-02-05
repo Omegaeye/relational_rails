@@ -12,16 +12,5 @@
   <p><b>Created At: </b><%= player.created_at %></p>
   <p><b>Updated At: </b><%= player.updated_at %></p>
   <p><b>Team ID: </b><%= player.team_id %></p>
-
-  <form action="/players/<%= player.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete"/>
-  </form>
 </div>
 <% end %>
-
-<form style="padding:20px;" action="/players/new" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="New Player">
-</form>
