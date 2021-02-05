@@ -12,3 +12,9 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Update Mount">
 </form>
+
+<form action="/mounts/<%= @mount.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete"/>
+</form>
