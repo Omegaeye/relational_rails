@@ -7,6 +7,16 @@
   <input type="submit" value="Add New Player">
 </form>
 
+<form style="padding:10px" action="/teams/<%= @team.id %>/players" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+
+  <label for="name">Only Show Players Over The Age Over:</label>
+  <input id="name" type="integer" value="">
+  <input type="submit" name="age" value="Show Players">
+</form>
+
+
 <% @team.players.each do |player| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>

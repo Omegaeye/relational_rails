@@ -19,6 +19,7 @@
   </form>
 </div>
 
+<p> Total Players: <%= @team.player_count %></p>
 <a href="/teams/<%= @team.id %>/players"><h3> All <%= @team.name %> Players</h3></a>
 
 <form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
