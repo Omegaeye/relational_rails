@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/kn/Projects/relational_rails/config/environment.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -10,7 +10,7 @@
           1
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/application.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/application.rb": {
         "lines": [
           1,
           null,
@@ -47,7 +47,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/boot.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -55,7 +55,7 @@
           1
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/environments/test.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -105,7 +105,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/application_controller_renderer.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -117,7 +117,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/assets.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -135,7 +135,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/backtrace_silencers.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -146,7 +146,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/content_security_policy.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -175,7 +175,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/cookies_serializer.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -184,7 +184,7 @@
           1
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/filter_parameter_logging.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -192,7 +192,7 @@
           1
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/inflections.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -212,7 +212,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/mime_types.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -220,7 +220,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/initializers/wrap_parameters.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -238,7 +238,7 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/config/routes.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/config/routes.rb": {
         "lines": [
           1,
           null,
@@ -282,24 +282,37 @@
           null
         ]
       },
-      "/Users/kn/Projects/relational_rails/app/helpers/application_helper.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/spec/features/players/delete_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/spec/features/players/edit_spec.rb": {
-
-      "/Users/kn/Projects/relational_rails/spec/features/teams/index_spec.rb": {
-
         "lines": [
           1,
           null,
           1,
           1,
           1,
-
           1,
           1,
           null,
@@ -315,101 +328,12 @@
           1,
           1,
           1,
-
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/kn/Projects/relational_rails/app/models/hero.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kn/Projects/relational_rails/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kn/Projects/relational_rails/app/controllers/heroes_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/kn/Projects/relational_rails/app/controllers/application_controller.rb": {
-        "lines": [
-
           1,
           null,
           null
         ]
       },
-
       "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/spec/features/players/index_spec.rb": {
-
-      "/Users/kn/Projects/relational_rails/app/models/team.rb": {
-
         "lines": [
           1,
           null,
@@ -429,7 +353,6 @@
           null
         ]
       },
-
       "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/spec/features/players/show_spec.rb": {
         "lines": [
           1,
@@ -556,9 +479,6 @@
         ]
       },
       "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/spec/features/teams/index_spec.rb": {
-
-      "/Users/kn/Projects/relational_rails/app/controllers/teams_controller.rb": {
-
         "lines": [
           1,
           null,
@@ -630,7 +550,7 @@
           null
         ]
       },
-      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/models/team.rb": {
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/models/hero.rb": {
         "lines": [
           1,
           1,
@@ -638,6 +558,73 @@
         ]
       },
       "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/controllers/heroes_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/models/team.rb": {
         "lines": [
           1,
           1,
@@ -703,13 +690,6 @@
           null,
           null
         ]
-
-      },
-      "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
       },
       "/Users/andrewjohnston/mod2/week1/relational_rails/relational_rails/app/controllers/teams_controller.rb": {
         "lines": [
@@ -766,11 +746,6 @@
         ]
       }
     },
-    "timestamp": 1612482350
-
-      }
-    },
-    "timestamp": 1612475583
-
+    "timestamp": 1612485674
   }
 }
