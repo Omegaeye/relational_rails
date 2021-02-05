@@ -1,5 +1,20 @@
-<h1><%= @hero.name %></h1>
- <h1><%= @hero.mounts.map do |mount|
-     mount.name
-    mount.level
-  end%> </h1>
+<a href="/heroes/<%= @hero.id %>"><%= @hero.name %> Hero Page</a>
+
+<h1>All <%= @hero.name %> Mounts</h1>
+
+<% @hero.mounts.each do |mount| %>
+<div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+  <h2><a href="/mounts/<%= mount.id %>"> <%= mount.name %></a></h2>
+  <p><b>Name: </b><%= mount.name %></p>
+  <p><b>fly?: </b><%= mount.fly %></p>
+  <p><b>level: </b><%= mount.level %></p>
+  <p><b>Created At: </b><%= mount.created_at %></p>
+  <p><b>Updated At: </b><%= mount.updated_at %></p>
+  <p><b>Hero ID: </b><%= mount.hero_id %></p>
+  <form action="/mounts/<%= mount.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+</div>
+<% end %>
