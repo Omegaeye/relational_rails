@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "heroes show page", type: :feature do
   it "parent show page shows list of parents and all attributes" do
     hero = Hero.create(name: 'Hero', alive: false, level: 1)
-    mount = hero.mounts.create(name: "Mount", level: 20, )
+    mount = hero.mounts.create(name: "Mount", level: 20)
 
     visit "/heroes/#{hero.id}"
 
