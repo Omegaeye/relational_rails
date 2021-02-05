@@ -9,7 +9,7 @@
 
     <a href="/heroes/<%= @hero.id %>/mounts"><h3> Mounts</h3></a>
   <form action="/heroes/<%= @hero.id %>/mounts/new" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input id="name" type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="submit" value="Add New Mount">
   </form>
 </div>
