@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get '/heroes', to: 'heroes#index'
   get '/heroes/:id/mounts', to: 'heroes#p_c_index'
+  patch 'heroes/:id/mounts', to: 'heroes#p_c_index'
   get '/heroes/new', to: 'heroes#new'
   post '/heroes', to: 'heroes#create'
   get '/heroes/:id', to: 'heroes#show'

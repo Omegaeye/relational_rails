@@ -5,6 +5,9 @@
     </style>
   </head>
   <body>
+    <a href="/">Intro Page</a>
+    <a style="padding-left:10px" href="/heroes">Hero Index</a>
+    <a style="padding-left:10px" href="/mounts">Mount Index</a><br>
     <%= link_to 'Sort by name', '/heroes?sort=asc' %>
 
     <h1>All Heroes</h1>
@@ -17,6 +20,11 @@
         <p>created_at: <%= hero.created_at %></p>
         <p>updated_at: <%= hero.updated_at %></p>
         <a href="/heroes/<%= hero.id %>/edit">Edit</a>
+        <form action="/heroes/<%= hero.id %>" method="POST">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Extinguish Hero"/>
+        </form>
    </div>
    <% end %>
 
@@ -25,7 +33,5 @@
      <input type="hidden" name="_method" value="New Hero">
      <input type="submit" value="New Hero"/>
    </form>
-
-    <a href="/">Intro Page</a>
   </body>
 </html>

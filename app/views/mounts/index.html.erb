@@ -1,6 +1,10 @@
+<a href="/">Intro Page</a>
+<a style="padding-left:10px" href="/heroes">Hero Index</a>
+
 <h1>All Mounts</h1>
 
-<% @mounts.each do |mount| %>
+
+<% @mounts.fly.each do |mount| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h3><a href="/mounts/<%= mount.id %>"><%= mount.name %></a></h3>
   <p>hero_id: <%= mount.hero_id %></p>
@@ -17,4 +21,3 @@
 </div>
 
 <% end %>
-<a href="/">Intro Page</a>
