@@ -6,5 +6,9 @@ class Hero < ApplicationRecord
     order('created_at ASC')
   end
 
-
+  def self.name_search(name)
+    self.all.find_all do |hero|
+      hero.name.downcase.include?(name.downcase)
+    end
+  end
 end

@@ -1,9 +1,31 @@
 <a href="/">Intro Page</a>
 <a style="padding-left:10px" href="/heroes">Hero Index</a>
+<%= form_tag "/mounts", method: :patch do %>
+  <%= label_tag %>
+  <%= text_field_tag :name %>
+  <%= submit_tag 'Search Name' %>
+<% end %>
 
 <h1>All Mounts</h1>
 
-
+<% if params[:name]%>
+<% @mounts.name_search(params[:name]).each do |mount| %>
+<div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+  <h3><a href="/mounts/<%= mount.id %>"><%= mount.name %></a></h3>
+  <p>hero_id: <%= mount.hero_id %></p>
+  <p>level: <%= mount.level %></p>
+  <p>fly?: <%= mount.fly %></p>
+  <p>created_at: <%= mount.created_at %></p>
+  <p>updated_at: <%= mount.updated_at %></p>
+  <a href="/mounts/<%= mount.id  %>/edit">Edit</a>
+  <form action="/mounts/<%= mount.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+</div>
+<% end %>
+<% else %>
 <% @mounts.fly.each do |mount| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h3><a href="/mounts/<%= mount.id %>"><%= mount.name %></a></h3>
@@ -19,5 +41,5 @@
     <input type="submit" value="delete"/>
   </form>
 </div>
-
+  <% end %>
 <% end %>
