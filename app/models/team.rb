@@ -9,4 +9,10 @@ class Team < ApplicationRecord
     players.count
   end
 
+  def self.name_search(name)
+    self.all.find_all do |team|
+      team.name.downcase.include?(name.downcase)
+    end
+  end
+
 end

@@ -23,10 +23,6 @@ class TeamsController < ApplicationController
     # end
   end
 
-  def over_age
-    @team = Team.find(params[:id])
-  end
-
   def show
     @team = Team.find(params[:id])
   end
