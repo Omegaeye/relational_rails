@@ -2,6 +2,6 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH" />
   <p>Edit</p>
-  <input type='text' name='mount[name]' value="<%= @mount.name %>"/><br/>
-  <input type='submit'/>
+  <input id='name' type='text' name='mount[name]' value="<%= @mount.name %>"/><br/>
+  <input type='submit' value='submit'/>
 </form>
