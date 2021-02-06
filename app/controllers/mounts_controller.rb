@@ -39,6 +39,8 @@ class MountsController < ApplicationController
     mount = Mount.find(params[:id])
     mount.update({
     name: params[:mount][:name],
+    fly: params[:mount][:fly],
+    level: params[:mount][:level],
     updated_at: Time.now
     })
   mount.save

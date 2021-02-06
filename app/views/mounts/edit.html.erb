@@ -3,5 +3,9 @@
   <input type="hidden" name="_method" value="PATCH" />
   <p>Name:</p>
   <input id='name' type='text' name='mount[name]' value="<%= @mount.name %>"/><br/>
+  <p>Fly status:</p>
+  <input id='fly' type='text' name='mount[fly]' value="<%= @mount.fly %>"/><br/>
+  <p>level:</p>
+  <input id='level' type='integer' name='mount[level]' value="<%= @mount.level %>"/><br/>
   <input type='submit' value='submit'/>
 </form>
