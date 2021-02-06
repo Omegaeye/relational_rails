@@ -1,4 +1,4 @@
-<a href="/players">Player Index</a>
+<a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
 
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h2><%= @player.name %></h2>
@@ -9,13 +9,13 @@
   <p><b>Updated At: </b><%= @player.updated_at %></p>
   <p><b>Team ID: </b><%= @player.team_id %></p>
 
-  <form style="padding:20px;" action="/players/<%= @player.id  %>/edit" method="get">
+  <form style="padding:10px;" action="/players/<%= @player.id  %>/edit" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="submit" value="Update Player">
   </form>
+  <form style="padding:10px;" action="/players/<%= @player.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Player"/>
+  </form>
 </div>
-<form action="/players/<%= @player.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete"/>
-</form>

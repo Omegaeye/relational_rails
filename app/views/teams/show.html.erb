@@ -1,4 +1,6 @@
-<a href="/teams">Team Index</a>
+<a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
+
+<a  href="/teams/<%= @team.id %>/players"><h3 style="padding-top:10px;padding-left:10px"> All <%= @team.name %> Players</h3></a>
 
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h2><%= @team.city %> <%= @team.name %></h2>
@@ -6,21 +8,19 @@
   <p><b>First Place Team: </b><%= @team.first_place %></p>
   <p><b>Created At: </b><%= @team.created_at %></p>
   <p><b>Updated At: </b><%= @team.updated_at %></p>
+  <p><b>Total Players: </b><%= @team.player_count %></p>
 
-  <form style="padding:20px;" action="/teams/<%= @team.id  %>/edit" method="get">
+  <form style="padding:10px;" action="/teams/<%= @team.id  %>/edit" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="submit" value="Update Team">
   </form>
 
-  <form action="/teams/<%= @team.id %>" method="POST">
+  <form style="padding:10px;" action="/teams/<%= @team.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete"/>
+    <input type="submit" value="Delete Team"/>
   </form>
 </div>
-
-<p> Total Players: <%= @team.player_count %></p>
-<a href="/teams/<%= @team.id %>/players"><h3> All <%= @team.name %> Players</h3></a>
 
 <form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

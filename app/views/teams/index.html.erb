@@ -1,7 +1,7 @@
-<a href="/">Intro Page</a>
-<br><a href="/players">Player Index</a></br>
+<a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
 
-<h1>All Teams</h1>
+
+<h1 style="padding-left:10px">All Teams</h1>
 
 <% @teams.sort.each do |team| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
@@ -9,6 +9,16 @@
   <p><b>Rank: </b><%= team.rank %></p>
   <p><b>First Place Team: </b><%= team.first_place %></p>
   <p><b>Created At: </b><%= team.created_at %></p>
+  <form style="padding:10px" action="/teams/<%= team.id %>/edit" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Update Team">
+  </form>
+
+  <form style="padding:10px" action="/teams/<%= team.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Team"/>
+  </form>
 </div>
 <% end %>
 
