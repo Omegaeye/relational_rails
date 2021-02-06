@@ -13,9 +13,7 @@ Rails.application.routes.draw do
 
   get '/players', to: 'players#index'
   get 'teams/:id/players', to: 'teams#p_c_index'
-  post 'teams/:id/players', to: 'teams#p_c_index'
   get '/teams/:id/players/new', to: 'players#new'
-  get '/teams/:id/players', to: 'players#create'
   post 'teams/:id/players', to: 'players#create'
   patch 'teams/:id/players', to: 'teams#p_c_index'
   get '/players/:id', to: "players#show"

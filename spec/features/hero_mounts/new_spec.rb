@@ -7,7 +7,7 @@ RSpec.describe "child mounts new page" do
     mount2 = hero.mounts.create(name: "M2", level: 20)
     mount3 = hero.mounts.create(name: "T2", level: 20)
 
-    visit "/heroes/#{hero.id}"
+    visit "/heroes/#{hero.id}/mounts"
 
     expect(page).to have_button("Add New Mount")
     click_button "Add New Mount"

@@ -18,11 +18,6 @@ RSpec.describe "heroes show page", type: :feature do
 
     visit "/heroes/#{hero.id}"
 
-    click_button "Add New Mount"
-    expect(current_path).to eq("/heroes/#{hero.id}/mounts/new")
-
-    visit "/heroes/#{hero.id}"
-
     expect(page).to have_link("Mounts")
     click_link "Mounts"
     expect(current_path).to eq("/heroes/#{hero.id}/mounts")

@@ -9,10 +9,6 @@
 
     <a href="/heroes/<%= @hero.id %>/mounts"><h3> Mounts</h3></a>
     <p>total # of mounts: <%=@hero.mounts.count%></p>
-  <form action="/heroes/<%= @hero.id %>/mounts/new" method="get">
-    <input id="name" type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="submit" value="Add New Mount">
-  </form>
 </div>
 
 <form action="/heroes/<%= @hero.id %>/edit" method="get">
