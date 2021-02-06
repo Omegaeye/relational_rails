@@ -5,12 +5,26 @@ class TeamsController < ApplicationController
 
   def p_c_index
     @team = Team.find(params[:id])
+    # if params[:sort]
+    #   if params[:age_of]
+    #     @team = Team.find(params[:id])
+    #     @team.players.order(name: params[:sort]).over_age(params[:age_of].to_i)
+    #   else
+    #     @team = Team.find(params[:id])
+    #     @team.players.order(name: params[:sort])
+    #   end
+    # else
+    #   if params[:age_of]
+    #     @team = Team.find(params[:id])
+    #     @team.players.over_age(params[:age_of].to_i)
+    #   else
+    #     @team = Team.find(params[:id])
+    #   end
+    # end
   end
 
   def over_age
-    binding.pry
-    @team = Team.find(params[:id]).players.over_age(params[:age])
-    redirect_to "teams/#{@teams.id}/players"
+    @team = Team.find(params[:id])
   end
 
   def show
@@ -52,5 +66,10 @@ class TeamsController < ApplicationController
       })
     team.save
     redirect_to '/teams'
+  end
+
+  private
+  def teams_params
+    params.permit(:age)
   end
 end

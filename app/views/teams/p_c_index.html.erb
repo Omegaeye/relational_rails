@@ -7,25 +7,56 @@
   <input type="submit" value="Add New Player">
 </form>
 
-<form style="padding:10px" action="/teams/<%= @team.id %>/players" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
+<%= form_tag "/teams/#{@team.id}/players", method: :patch do %>
+  <%= label_tag %>
+  <%= text_field_tag :age_of %>
 
-  <label for="name">Only Show Players Over The Age Over:</label>
-  <input id="name" type="integer" value="">
-  <input type="submit" name="age" value="Show Players">
-</form>
+  <%= submit_tag 'Show All Players Over This Age' %>
+<% end %>
 
-
-<% @team.players.each do |player| %>
-<div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
-  <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>
-  <p><b>Name: </b><%= player.name %></p>
-  <p><b>Position: </b><%= player.position %></p>
-  <p><b>Age: </b><%= player.age %></p>
-  <p><b>Starter: </b><%= player.starter %></p>
-  <p><b>Created At: </b><%= player.created_at %></p>
-  <p><b>Updated At: </b><%= player.updated_at %></p>
-  <p><b>Team ID: </b><%= player.team_id %></p>
+<div style="padding:10px">
+<%= link_to "Sort All #{@team.name} Players By Name", "/teams/#{@team.id}/players?sort=asc" %>
 </div>
+
+<% if params[:age_of] %>
+  <% @team.players.over_age(params[:age_of]).each do |player| %>
+  <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+    <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>
+    <p><b>Name: </b><%= player.name %></p>
+    <p><b>Position: </b><%= player.position %></p>
+    <p><b>Age: </b><%= player.age %></p>
+    <p><b>Starter: </b><%= player.starter %></p>
+    <p><b>Created At: </b><%= player.created_at %></p>
+    <p><b>Updated At: </b><%= player.updated_at %></p>
+    <p><b>Team ID: </b><%= player.team_id %></p>
+  </div>
+  <% end %>
+
+<% elsif params[:sort] %>
+  <% @team.players.sorted.each do |player| %>
+  <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+    <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>
+    <p><b>Name: </b><%= player.name %></p>
+    <p><b>Position: </b><%= player.position %></p>
+    <p><b>Age: </b><%= player.age %></p>
+    <p><b>Starter: </b><%= player.starter %></p>
+    <p><b>Created At: </b><%= player.created_at %></p>
+    <p><b>Updated At: </b><%= player.updated_at %></p>
+    <p><b>Team ID: </b><%= player.team_id %></p>
+  </div>
+  <% end %>
+
+<% else %>
+  <% @team.players.each do |player| %>
+  <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+    <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>
+    <p><b>Name: </b><%= player.name %></p>
+    <p><b>Position: </b><%= player.position %></p>
+    <p><b>Age: </b><%= player.age %></p>
+    <p><b>Starter: </b><%= player.starter %></p>
+    <p><b>Created At: </b><%= player.created_at %></p>
+    <p><b>Updated At: </b><%= player.updated_at %></p>
+    <p><b>Team ID: </b><%= player.team_id %></p>
+  </div>
+  <% end %>
 <% end %>

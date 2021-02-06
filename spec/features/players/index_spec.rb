@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "players index page", type: :feature do
   it "player index page shows list of players and attributes" do
     team = Team.create(name: "Team", city: "City")
-    player = team.players.create(name: "Andrew", age: 20, position: "1B")
+    player = team.players.create(name: "Andrew", age: 20, position: "1B", starter: true)
     visit '/players'
 
     expect(page).to have_link("#{player.name}")

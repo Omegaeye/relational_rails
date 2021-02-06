@@ -2,8 +2,8 @@
 <br><a href="/players">Player Index</a></br>
 
 <h1>All Teams</h1>
-<% teams = @teams.sort %>
-<% teams.each do |team| %>
+
+<% @teams.sort.each do |team| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h2><a href="/teams/<%= team.id %>"><%= team.city %> <%= team.name %></a></h2>
   <p><b>Rank: </b><%= team.rank %></p>
