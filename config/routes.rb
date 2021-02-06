@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   patch 'heroes/:id/mounts', to: 'heroes#p_c_index'
   get '/heroes/new', to: 'heroes#new'
   post '/heroes', to: 'heroes#create'
+  patch '/heroes', to: 'heroes#index'
   get '/heroes/:id', to: 'heroes#show'
   get '/heroes/:id/edit', to: 'heroes#edit'
   patch '/heroes/:id', to: 'heroes#update', as: 'hero'
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   post '/heroes/:id/mounts', to: 'mounts#create'
   get '/mounts/:id', to: "mounts#show"
   get '/mounts/:id/edit', to: 'mounts#edit'
+  patch '/mounts', to: 'mounts#index'
   patch '/mounts/:id', to: 'mounts#update'
   delete '/mounts/:id', to: 'mounts#destroy'
 end
