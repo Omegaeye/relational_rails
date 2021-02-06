@@ -2,10 +2,11 @@
 <html>
   <head>
     <style>
-      body {  }
     </style>
   </head>
   <body>
+    <%= link_to 'Sort by name', '/heroes?sort=asc' %>
+
     <h1>All Heroes</h1>
 
     <% @heros.each do |hero| %>

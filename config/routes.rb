@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post '/heroes', to: 'heroes#create'
   get '/heroes/:id', to: 'heroes#show'
   get '/heroes/:id/edit', to: 'heroes#edit'
-  patch '/heroes/:id', to: 'heroes#update'
+  patch '/heroes/:id', to: 'heroes#update', as: 'hero'
   delete '/heroes/:id', to: 'heroes#destroy'
 
   get '/mounts', to: 'mounts#index'
