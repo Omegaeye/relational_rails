@@ -2,7 +2,7 @@ class Mount < ApplicationRecord
   belongs_to :hero
 
   def self.sorted
-    order("name ASC")
+    order('LOWER(name)')
   end
 
   def self.fly

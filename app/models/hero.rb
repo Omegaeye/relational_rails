@@ -6,6 +6,12 @@ class Hero < ApplicationRecord
     order('created_at ASC')
   end
 
+  def self.sorted
+    self.all.sort_by do |hero|
+      hero.name.downcase
+    end
+  end
+
   def self.name_search(name)
     self.all.find_all do |hero|
       hero.name.downcase.include?(name.downcase)
