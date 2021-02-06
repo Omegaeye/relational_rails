@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/teams/:id/edit', to: 'teams#edit'
   patch '/teams/:id', to: 'teams#update'
   delete '/teams/:id', to: 'teams#destroy'
+  patch '/teams', to: 'teams#index'
 
   get '/players', to: 'players#index'
   get 'teams/:id/players', to: 'teams#p_c_index'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get '/players/:id/edit', to: 'players#edit'
   patch '/players/:id', to: 'players#update'
   delete '/players/:id', to: 'players#destroy'
+  patch '/players', to: 'players#index'
 
   get '/heroes', to: 'heroes#index'
   get '/heroes/:id/mounts', to: 'heroes#p_c_index'
