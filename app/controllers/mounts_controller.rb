@@ -1,10 +1,6 @@
 class MountsController < ApplicationController
   def index
-    if params[:sort]
-      @mounts = Mount.order(name: params[:sort])
-  else
       @mounts = Mount.all
-    end
   end
 
   def new

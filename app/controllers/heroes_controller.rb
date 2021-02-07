@@ -1,10 +1,6 @@
 class HeroesController < ApplicationController
   def  index
-    if params[:sort]
-      @heros = Hero.order(name: params[:sort])
-    else
       @heros = Hero.all
-    end
   end
 
   def p_c_index

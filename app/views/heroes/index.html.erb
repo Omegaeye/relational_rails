@@ -38,7 +38,7 @@
        </div>
      <% end %>
   <% else %>
-    <% @heros.each do |hero| %>
+    <% @heros.sorted.each do |hero| %>
     <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
       <h3><a href="/heroes/<%= hero.id %>"><%= hero.name %></a></h3>
         <p>level: <%= hero.level %></p>

@@ -2,8 +2,14 @@ class Hero < ApplicationRecord
   has_many :mounts, :dependent => :destroy
   validates :name, presence: true
 
-  def self.order_by_creation_time
-    order('created_at ASC')
+  def self.sorted
+    self.all.sort_by do |hero|
+      hero.name.downcase
+    end
+  end
+
+  def mount_count
+    mounts.count
   end
 
   def self.name_search(name)
