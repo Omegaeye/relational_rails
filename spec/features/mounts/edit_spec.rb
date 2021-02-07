@@ -10,9 +10,11 @@ RSpec.describe "child index page" do
     click_button "Update Mount"
     expect(current_path).to eq("/mounts/#{mount.id}/edit")
     fill_in "name", with: "Drew"
+    fill_in "level", with: 10
     click_button "submit"
     expect(current_path).to eq("/mounts/#{mount.id}")
     expect(page).to have_content("#{mount.name}")
+    expect(page).to have_content("#{mount.level}")
     expect(page).to have_content("#{mount.created_at}")
     expect(page).to have_content("#{mount.updated_at}")
   end

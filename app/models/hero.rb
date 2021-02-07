@@ -12,6 +12,10 @@ class Hero < ApplicationRecord
     end
   end
 
+  def mount_count
+    mounts.count
+  end
+
   def self.name_search(name)
     self.all.find_all do |hero|
       hero.name.downcase.include?(name.downcase)
