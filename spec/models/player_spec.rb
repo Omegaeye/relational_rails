@@ -51,13 +51,14 @@ RSpec.describe Player, type: :model do
       Team.destroy_all
       Player.destroy_all
       team1 = Team.create(name: "Team", city: "City")
-      player1 = team1.players.create(name: "Andrew", age: 20, position: '1B')
-      player2 = team1.players.create(name: "Khoa", age: 34, position: '2B')
-      player3 = team1.players.create(name: "Janis", age: 25, position: 'SS')
+      player1 = team1.players.create(name: "Andrew", age: 20, position: '1B', starter: true)
+      player2 = team1.players.create(name: "Khoa", age: 34, position: '2B', starter: true)
+      player3 = team1.players.create(name: "Janis", age: 25, position: 'SS', starter: true)
 
       expect(Player.name_search('drew')).to eq([player1])
       expect(Player.name_search('a')).to eq([player1, player2, player3])
       expect(Player.name_search('aojui')).to eq([])
+      expect(Player.name_search('')).to eq([player1, player2, player3])
     end
   end
 end

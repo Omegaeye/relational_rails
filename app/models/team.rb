@@ -10,9 +10,21 @@ class Team < ApplicationRecord
   end
 
   def self.name_search(name)
-    self.all.find_all do |team|
-      team.name.downcase.include?(name.downcase)
+    if name == ''
+      self.all.sort_by do |team|
+        team.created_at
+      end
+    else
+      self.all.find_all do |team|
+        team.name.downcase.include?(name.downcase)
+      end
     end
+  end
+
+  def self.number_of_players
+    self.all.sort_by do |team|
+      team.players.count
+    end.reverse
   end
 
 end
