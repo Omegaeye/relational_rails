@@ -17,7 +17,7 @@ class Player < ApplicationRecord
 
   def self.sorted
     self.all.sort_by do |player|
-      player.name
+      player.name.downcase
     end
   end
 

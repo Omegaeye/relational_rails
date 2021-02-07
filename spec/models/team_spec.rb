@@ -15,6 +15,16 @@ RSpec.describe Team, type: :model do
       expect(Team.sort).to eq([team1, team2])
     end
 
+    it 'name search' do
+      team1 = Team.create(name: "Team 1", city: "City")
+      team2 = Team.create(name: "Team 2", city: "City")
+      team3 = Team.create(name: "Team 3", city: "City")
+
+      expect(Team.name_search('2')).to eq([team2])
+      expect(Team.name_search('team')).to eq([team1, team2, team3])
+      expect(Team.name_search('sjpvj')).to eq([])
+    end
+
   end
 
   describe 'instance methods' do
