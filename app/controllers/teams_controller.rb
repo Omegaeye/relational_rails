@@ -63,9 +63,4 @@ class TeamsController < ApplicationController
     team.save
     redirect_to '/teams'
   end
-
-  private
-  def teams_params
-    params.permit(:age)
-  end
 end
