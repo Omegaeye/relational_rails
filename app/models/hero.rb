@@ -14,6 +14,12 @@ class Hero < ApplicationRecord
     end.reverse
   end
 
+  def self.mounts_above_level(level)
+    self.all.find_all do |hero|
+      hero.mounts.level_above(level)
+    end
+  end
+
   def mount_count
     mounts.count
   end
