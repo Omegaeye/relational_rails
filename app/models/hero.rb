@@ -16,6 +16,7 @@ class Hero < ApplicationRecord
     self.all.find_all do |hero|
       hero.mounts.level_above(level)
     end
+    # mounts.find(mounts.level_above(level))
   end
 
   def mount_count
@@ -23,9 +24,6 @@ class Hero < ApplicationRecord
   end
 
   def self.name_search(name)
-    # self.all.find_all do |hero|
-    #   hero.name.downcase.include?(name.downcase)
-    # end
-    where(name: "%#{name.capitalize}%")
+    where("name ILIKE ?", "%#{name.capitalize}%")
   end
 end

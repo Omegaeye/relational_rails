@@ -9,17 +9,13 @@
   <%= submit_tag 'All Mounts above level' %>
 <% end %>
 
-<h1><%= @hero.name %> Mounts</h1>
+<h1><%= "#{@hero.name}" %> Mounts</h1>
 
-<form action="/heroes/<%= @hero.id %>/mounts/new" method="get">
-  <input id="name" type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="Add New Mount">
-</form>
+<%= link_to 'Add New Mount', "/heroes/#{@hero.id}/mounts/new" %><br>
 
   <% @mounts.each do |mount| %>
     <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
       <h2><a href="/mounts/<%= mount.id %>"> <%= mount.name %></a></h2>
-        <p><b>Name:       </b><%= mount.name       %></p>
         <p><b>fly?:       </b><%= mount.fly        %></p>
         <p><b>level:      </b><%= mount.level      %></p>
         <p><b>Created At: </b><%= mount.created_at %></p>

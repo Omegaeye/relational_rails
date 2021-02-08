@@ -1,5 +1,6 @@
-<a href="/">Intro Page</a>
-<a style="padding-left:10px" href="/heroes">Hero Index</a>
+<%= link_to 'Intro Page', "/" %>
+<%= link_to 'Hero Index', "/heroes" %>
+<%= link_to 'Mount Index', "/mounts" %><br>
 <%= form_tag "/mounts", method: :patch do %>
   <%= label_tag %>
   <%= text_field_tag :name %>

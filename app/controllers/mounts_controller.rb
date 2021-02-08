@@ -11,7 +11,7 @@ class MountsController < ApplicationController
     @hero = Hero.find(params[:id])
     mount = Mount.new({
      name: params[:mount][:name].capitalize,
-     fly: false,
+     fly: true,
      level: 1,
      created_at: Time.now,
      updated_at: Time.now,
