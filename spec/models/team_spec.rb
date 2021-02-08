@@ -12,7 +12,7 @@ RSpec.describe Team, type: :model do
       team2 = Team.create(name: "Team2", city: "City2")
       player2 = team2.players.create(name: "Khoa", age: 34, position: '2B')
 
-      expect(Team.sort).to eq([team1, team2])
+      expect(Team.sorted).to eq([team1, team2])
     end
 
     it 'name search' do

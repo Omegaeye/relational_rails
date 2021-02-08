@@ -9,13 +9,6 @@
   <%= submit_tag 'All Mounts above level' %>
 <% end %>
 
-
-<%= form_with url: "/heroes/#{@hero.id}/mounts", method: :patch do |form| %>
-  <%= form.number_field :level %>
-  <%= form.submit 'All Mounts above level' %>
-<% end %>
-
-
 <h1><%= "#{@hero.name}" %> Mounts</h1>
 
 <%= link_to 'Add New Mount', "/heroes/#{@hero.id}/mounts/new" %><br>
