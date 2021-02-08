@@ -1,6 +1,8 @@
 <%= link_to 'Intro Page', "/" %>
 <%= link_to 'Hero Index', "/heroes" %>
 <%= link_to 'Mount Index', "/mounts" %><br>
+<%= link_to "#{@mount.hero.name} page", "/heroes/#{@mount.hero.id}" %>
+
 
 <h1><%= @mount.name %></h1>
 

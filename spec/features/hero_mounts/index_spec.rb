@@ -20,5 +20,10 @@ RSpec.describe "parent child index page" do
     expect(page).to have_content("#{mount2.level}")
     expect(page).to have_content("#{mount2.created_at}")
     expect(page).to have_content("#{mount2.updated_at}")
+
+    expect(page).to have_link("Sort by name")
+    click_link('Sort by name')
+    expect(page).to have_button('All Mounts above level')
+    click_button('All Mounts above level')
   end
 end

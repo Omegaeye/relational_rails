@@ -7,16 +7,7 @@ class Hero < ApplicationRecord
   end
 
   def self.number_of_mounts
-    self.all.sort_by do |hero|
-      hero.mounts.count
-    end.reverse
-  end
-
-  def self.mounts_above_level(level)
-    self.all.find_all do |hero|
-      hero.mounts.level_above(level)
-    end
-    # mounts.find(mounts.level_above(level))
+    left_joins(:mounts).group(:id).order('COUNT(mounts.id) DESC')
   end
 
   def mount_count

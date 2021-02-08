@@ -5,9 +5,16 @@
 <%= link_to 'Sort by name', "/heroes/#{@hero.id}/mounts?sort=asc" %>
 <%= form_tag "/heroes/#{@hero.id}/mounts", method: :patch do %>
   <%= label_tag %>
-  <%= text_field_tag :level %>
+  <%= number_field_tag :level %>
   <%= submit_tag 'All Mounts above level' %>
 <% end %>
+
+
+<%= form_with url: "/heroes/#{@hero.id}/mounts", method: :patch do |form| %>
+  <%= form.number_field :level %>
+  <%= form.submit 'All Mounts above level' %>
+<% end %>
+
 
 <h1><%= "#{@hero.name}" %> Mounts</h1>
 
@@ -22,11 +29,7 @@
         <p><b>Updated At: </b><%= mount.updated_at %></p>
         <p><b>Hero ID:    </b><%= mount.hero_id    %></p>
 
-      <form action="/mounts/<%= mount.id %>" method="POST">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete"/>
-      </form>
+      <%= button_to 'Delete', "/mounts/#{mount.id}", method: :delete %>
 
       <form action="/mounts/<%= mount.id  %>/edit" method="get">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

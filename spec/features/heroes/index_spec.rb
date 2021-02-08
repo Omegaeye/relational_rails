@@ -9,6 +9,13 @@ RSpec.describe "heroes index page", type: :feature do
     expect(page).to have_link("#{hero.name}")
     expect(page).to have_content("#{hero.level}")
     expect(page).to have_content("#{hero.alive}")
+
+    expect(page).to have_link("Sort by #of Mounts")
+    click_link("Sort by #of Mounts")
+    expect(current_path).to eq('/heroes')
+
+    expect(page).to have_button('Search Name')
+    click_button('Search Name')
   end
 
 end
