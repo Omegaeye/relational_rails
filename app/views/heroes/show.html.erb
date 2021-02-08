@@ -1,6 +1,6 @@
-<a href="/">Intro Page</a>
-<a style="padding-left:10px" href="/heroes">Hero Index</a>
-<a style="padding-left:10px" href="/mounts">Mount Index</a><br>
+<%= link_to 'Intro Page', "/" %>
+<%= link_to 'Hero Index', "/heroes" %>
+<%= link_to 'Mount Index', "/mounts" %><br>
 
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h1><%= @hero.name %></h1>
@@ -10,7 +10,6 @@
     <p>created_at: <%= @hero.created_at %></p>
     <p>updated_at: <%= @hero.updated_at %></p>
 
-    <a href="/heroes/<%= @hero.id %>/mounts"><h3> Mounts</h3></a>
     <%= link_to 'Mounts', "/heroes/#{@hero.id}/mounts" %>
 
     <p>total # of mounts: <%=@hero.mounts.count%></p>

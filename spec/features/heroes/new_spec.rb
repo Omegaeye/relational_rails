@@ -6,12 +6,12 @@ RSpec.describe "heroes new page" do
     mount = hero.mounts.create(name: "Mount", level: 20)
     visit '/heroes'
 
-    expect(page).to have_button("New Hero")
-    click_button "New Hero"
+    expect(page).to have_link("Create New Hero")
+    click_link "Create New Hero"
     expect(current_path).to eq("/heroes/new")
     fill_in "name", with: "hero3"
     click_button "submit"
     expect(current_path).to eq("/heroes")
-    expect(page).to have_link("hero3")
+    expect(page).to have_content("Hero3")
   end
 end

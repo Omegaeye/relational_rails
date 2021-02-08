@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "child index page" do
-  it "child index page shows list childs and attributes" do
+RSpec.describe "parent child index page" do
+  it "parent child index page shows list childs and attributes" do
     hero = Hero.create(name: 'Hero', alive: false, level: 1)
-    mount = hero.mounts.create(name: "Mount", level: 20)
-    mount2 = hero.mounts.create(name: "M2", level: 20)
-    mount3 = hero.mounts.create(name: "T2", level: 20)
+    mount = hero.mounts.create(name: "Mount", level: 20, fly: true)
+    mount2 = hero.mounts.create(name: "Janis", level: 20, fly: true)
+    mount3 = hero.mounts.create(name: "T2", level: 20, fly: true)
 
     visit "/heroes/#{hero.id}/mounts"
 

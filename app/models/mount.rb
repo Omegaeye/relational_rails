@@ -19,9 +19,6 @@ class Mount < ApplicationRecord
   end
 
   def self.name_search(name)
-    self.all.find_all do |mount|
-      mount.name.include?(name)
-    end
-    # where(name: name.capitalize)
+    where("name ILIKE ?", "%#{name.capitalize}%")
   end
 end

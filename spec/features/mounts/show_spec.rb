@@ -7,7 +7,7 @@ RSpec.describe "child show page" do
     visit "/mounts/#{mount.id}"
 
     expect(page).to have_content("#{mount.name}")
-    expect(page).to have_content("#{mount.level}")
+    expect(page).to have_content(mount.level)
     expect(page).to have_content("#{mount.fly}")
     expect(page).to have_content("#{mount.created_at}")
     expect(page).to have_content("#{mount.updated_at}")

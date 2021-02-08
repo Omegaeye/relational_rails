@@ -9,8 +9,8 @@ RSpec.describe "child mounts new page" do
 
     visit "/heroes/#{hero.id}/mounts"
 
-    expect(page).to have_button("Add New Mount")
-    click_button "Add New Mount"
+    expect(page).to have_link("Add New Mount")
+    click_link "Add New Mount"
     expect(current_path).to eq("/heroes/#{hero.id}/mounts/new")
     fill_in "name", with: "Janis"
     click_button "submit"
