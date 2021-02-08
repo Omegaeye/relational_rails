@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
   has_many :players, :dependent => :destroy
 
-  def self.sort
+  def self.sorted
     order('created_at ASC')
   end
 
@@ -10,21 +10,11 @@ class Team < ApplicationRecord
   end
 
   def self.name_search(name)
-    if name == ''
-      self.all.sort_by do |team|
-        team.created_at
-      end
-    else
-      self.all.find_all do |team|
-        team.name.downcase.include?(name.downcase)
-      end
-    end
+    where("name ILIKE ?", "%#{name.capitalize}%")
   end
 
   def self.number_of_players
-    self.all.sort_by do |team|
-      team.players.count
-    end.reverse
+    left_joins(:players).group(:id).order('COUNT(players.id) DESC')
   end
 
 end

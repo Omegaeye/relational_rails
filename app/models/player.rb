@@ -19,13 +19,9 @@ class Player < ApplicationRecord
 
   def self.name_search(name)
     if name == ''
-      self.all.starters.sort_by do |player|
-        player.created_at
-      end
+      where(starter: true)
     else
-      self.all.find_all do |player|
-        player.name.downcase.include?(name.downcase)
-      end
+      where("name ILIKE ?", "%#{name.capitalize}%")
     end
   end
 end
