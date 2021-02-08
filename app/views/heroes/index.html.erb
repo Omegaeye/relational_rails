@@ -1,12 +1,7 @@
-<a href="/">Intro Page</a>
-<a style="padding-left:10px" href="/heroes">Hero Index</a>
-<a style="padding-left:10px" href="/mounts">Mount Index</a><br>
+<%= link_to 'Intro Page', "/" %>
+<%= link_to 'Hero Index', "/heroes" %>
+<%= link_to 'Mount Index', "/mounts" %><br>
 <%= link_to 'Sort by #of Mounts', '/heroes?sort=asc' %>
-<form action="/heroes/new" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="New Hero">
-  <input type="submit" value="New Hero"/>
-</form>
 <%= form_tag "/heroes", method: :patch do %>
   <%= label_tag %>
   <%= text_field_tag :name %>
@@ -14,16 +9,18 @@
 <% end %>
 
 <h1>All Heroes</h1>
+<%= link_to 'Create New Hero', "/heroes/new" %>
 <% if params[:sort]%>
   <% @heros.each do |hero| %>
     <%hero.mount_count%>
-       <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+       <div style="border:solid white;background:lightblue;color:black;padding:15px;font-size:18px">
          <h3><a href="/heroes/<%= hero.id %>"><%= hero.name %> has <%=hero.mount_count%> mounts </a></h3>
            <p>level: <%= hero.level %></p>
            <p>alive?: <%= hero.alive %></p>
            <p>created_at: <%= hero.created_at %></p>
            <p>updated_at: <%= hero.updated_at %></p>
-           <a href="/heroes/<%= hero.id %>/edit">Edit</a>
+          <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit" %>
+
          <form action="/heroes/<%= hero.id %>" method="POST">
            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
            <input type="hidden" name="_method" value="DELETE">
@@ -33,14 +30,14 @@
       <% end %>
   <% else %>
 <% @heros.each do |hero| %>
-  <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+  <div style="border:solid white;background:yellow;color:blue;padding:15px;font-size:18px">
     <h3><a href="/heroes/<%= hero.id %>"><%= hero.name %></a></h3>
     <p>total # of mounts: <%=hero.mount_count%></p>
       <p>level: <%= hero.level %></p>
       <p>alive?: <%= hero.alive %></p>
       <p>created_at: <%= hero.created_at %></p>
       <p>updated_at: <%= hero.updated_at %></p>
-      <a href="/heroes/<%= hero.id %>/edit">Edit</a>
+      <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit" %>
     <form action="/heroes/<%= hero.id %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="_method" value="DELETE">

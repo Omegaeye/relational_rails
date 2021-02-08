@@ -1,14 +1,13 @@
 class Mount < ApplicationRecord
   belongs_to :hero
+  validates :name, presence: true
 
   def self.sorted
-    order('LOWER(name)')
+    order('name')
   end
 
   def self.fly
-    self.all.find_all do |mount|
-      mount.fly == true
-    end
+    where(fly: true)
   end
 
   def self.level_above(threshold)
@@ -21,7 +20,8 @@ class Mount < ApplicationRecord
 
   def self.name_search(name)
     self.all.find_all do |mount|
-      mount.name.downcase.include?(name.downcase)
+      mount.name.include?(name)
     end
+    # where(name: name.capitalize)
   end
 end

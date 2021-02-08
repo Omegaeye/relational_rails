@@ -5,12 +5,21 @@ class HeroesController < ApplicationController
     elsif params[:name]
       @heros = Hero.name_search(params[:name])
     else
-      @heros = Hero.all
+      @heros = Hero.sorted_by_created_at
     end
   end
 
   def p_c_index
+    if params[:sort]
       @hero = Hero.find(params[:id])
+      @mounts = @hero.mounts.sorted
+    elsif params[:level]
+      @hero = Hero.find(params[:id])
+      @mounts = @hero.mounts.level_above(params[:level])
+    else
+      @hero = Hero.find(params[:id])
+      @mounts = @hero.mounts.fly
+    end
   end
 
   def new
@@ -19,7 +28,7 @@ class HeroesController < ApplicationController
 
   def create
     hero = Hero.new({
-    name: params[:hero][:name],
+    name: params[:hero][:name].capitalize,
     alive: true,
     level: 1,
     created_at: Time.now,
@@ -42,7 +51,7 @@ class HeroesController < ApplicationController
   def update
     @hero = Hero.find(params[:id])
     @hero.update({
-    name: params[:hero][:name],
+    name: params[:hero][:name].capitalize,
     alive: params[:hero][:alive],
     level: params[:hero][:level],
     updated_at: Time.now

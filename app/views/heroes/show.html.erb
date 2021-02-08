@@ -11,6 +11,8 @@
     <p>updated_at: <%= @hero.updated_at %></p>
 
     <a href="/heroes/<%= @hero.id %>/mounts"><h3> Mounts</h3></a>
+    <%= link_to 'Mounts', "/heroes/#{@hero.id}/mounts" %>
+
     <p>total # of mounts: <%=@hero.mounts.count%></p>
 </div>
 

@@ -3,9 +3,7 @@ class Hero < ApplicationRecord
   validates :name, presence: true
 
   def self.sorted_by_created_at
-    self.all.sort_by do |hero|
-      hero.created_at
-    end
+    order('created_at')
   end
 
   def self.number_of_mounts
@@ -25,8 +23,9 @@ class Hero < ApplicationRecord
   end
 
   def self.name_search(name)
-    self.all.find_all do |hero|
-      hero.name.downcase.include?(name.downcase)
-    end
+    # self.all.find_all do |hero|
+    #   hero.name.downcase.include?(name.downcase)
+    # end
+    where(name: "%#{name.capitalize}%")
   end
 end
