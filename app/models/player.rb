@@ -2,9 +2,7 @@ class Player < ApplicationRecord
   belongs_to :team
 
   def self.starters
-    self.all.find_all do |player|
-      player.starter == true
-    end
+    where(starter: true)
   end
 
   def self.over_age(num)
@@ -16,9 +14,7 @@ class Player < ApplicationRecord
   end
 
   def self.sorted
-    self.all.sort_by do |player|
-      player.name.downcase
-    end
+    order("name")
   end
 
   def self.name_search(name)

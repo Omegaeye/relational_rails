@@ -1,6 +1,10 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.all
+    if params[:name]
+      @players = Player.name_search(params[:name])
+    else
+      @players = Player.starters
+    end
   end
 
   def new
@@ -10,7 +14,7 @@ class PlayersController < ApplicationController
   def create
     @team = Team.find(params[:id])
     player = Player.new({
-      name: params[:player][:name],
+      name: params[:player][:name].capitalize,
       position: params[:player][:position],
       age: params[:player][:age],
       starter: true,
@@ -25,7 +29,7 @@ class PlayersController < ApplicationController
   def update
     player = Player.find(params[:id])
     player.update({
-      name: params[:player][:name],
+      name: params[:player][:name].capitalize,
       age: params[:player][:age],
       position: params[:player][:position],
       updated_at: Time.now
