@@ -22,8 +22,14 @@ class Player < ApplicationRecord
   end
 
   def self.name_search(name)
-    self.all.find_all do |player|
-      player.name.downcase.include?(name.downcase)
+    if name == ''
+      self.all.starters.sort_by do |player|
+        player.created_at
+      end
+    else
+      self.all.find_all do |player|
+        player.name.downcase.include?(name.downcase)
+      end
     end
   end
 end
