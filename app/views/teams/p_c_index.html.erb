@@ -2,7 +2,7 @@
 
 
 <h1>All <%= @team.name %> Players</h1>
-<a href="/teams/<%= @team.id %>"><%= @team.name %> Team Page</a>
+<a href="/teams/<%= @team.id %>"><h2><%= @team.name %> Team Page</h2></a>
 
 <form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -11,7 +11,7 @@
 
 <%= form_tag "/teams/#{@team.id}/players", method: :patch do %>
   <%= label_tag %>
-  <%= text_field_tag :age_of %>
+  <%= number_field_tag :age_of %>
 
   <%= submit_tag 'Show All Players Over This Age' %>
 <% end %>

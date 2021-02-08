@@ -3,9 +3,9 @@ class TeamsController < ApplicationController
     if params[:sort]
       @teams = Team.number_of_players
     elsif params[:name]
-      @teams = Team.name_search(params[:name])
+      @teams = Team.name_search(params[:name]).sorted
     else
-      @teams = Team.sort
+      @teams = Team.sorted
     end
   end
 

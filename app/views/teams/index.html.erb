@@ -10,8 +10,9 @@
   <%= submit_tag 'Search Team By Name' %>
 <% end %>
 
-<%= link_to "Sort Teams By Number of Players", "/teams?sort=asc" %>
-
+<div style="padding:10px">
+  <%= link_to "Sort Teams By Number of Players", "/teams?sort=asc" %>
+</div>
 
 <% @teams.each do |team| %>
   <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
