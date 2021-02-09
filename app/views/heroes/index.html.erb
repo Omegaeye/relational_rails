@@ -20,12 +20,7 @@
            <p>created_at: <%= hero.created_at %></p>
            <p>updated_at: <%= hero.updated_at %></p>
           <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit" %>
-
-         <form action="/heroes/<%= hero.id %>" method="POST">
-           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-           <input type="hidden" name="_method" value="DELETE">
-           <input type="submit" value="Extinguish Hero"/>
-         </form>
+          <%= button_to 'Delete', "/heroes/#{hero.id}", method: :delete %>
         </div>
       <% end %>
   <% else %>
@@ -38,11 +33,7 @@
       <p>created_at: <%= hero.created_at %></p>
       <p>updated_at: <%= hero.updated_at %></p>
       <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit" %>
-    <form action="/heroes/<%= hero.id %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Extinguish Hero"/>
-    </form>
+      <%= button_to 'Delete', "/heroes/#{hero.id}", method: :delete %>
    </div>
    <% end %>
  <% end %>

@@ -1,6 +1,10 @@
 class MountsController < ApplicationController
   def index
-      @mounts = Mount.all
+    if params[:name]
+      @mounts = Mount.name_search(params[:name])
+    else
+      @mounts = Mount.fly
+    end
   end
 
   def new

@@ -6,8 +6,8 @@ RSpec.describe "child index page" do
     mount = hero.mounts.create(name: "Mount", level: 20)
     visit "/mounts/#{mount.id}"
 
-    expect(page).to have_button("Update Mount")
-    click_button "Update Mount"
+    expect(page).to have_link("Update Mount")
+    click_link "Update Mount"
     expect(current_path).to eq("/mounts/#{mount.id}/edit")
     fill_in "name", with: "Drew"
     fill_in "level", with: 10

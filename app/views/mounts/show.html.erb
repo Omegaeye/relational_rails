@@ -11,14 +11,5 @@
 <p>fly?: <%= @mount.fly %></p>
 <p>created_at: <%= @mount.created_at %></p>
 <p>updated_at: <%= @mount.updated_at %></p>
-
-<form style="padding:20px;" action="/mounts/<%= @mount.id  %>/edit" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="Update Mount">
-</form>
-
-<form action="/mounts/<%= @mount.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete"/>
-</form>
+<%= link_to 'Update Mount', "/mounts/#{@mount.id}/edit" %>
+<%= button_to 'Delete Mount', "/mounts/#{@mount.id}", method: :delete %>

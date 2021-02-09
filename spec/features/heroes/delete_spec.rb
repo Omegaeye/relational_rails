@@ -6,8 +6,8 @@ RSpec.describe "heroes delete" do
     mount = hero.mounts.create(name: "Mount", level: 20)
     visit "/heroes/#{hero.id}"
 
-    expect(page).to have_button("Extinguish Hero")
-    click_button("Extinguish Hero")
+    expect(page).to have_button("Delete Hero")
+    click_button("Delete Hero")
     expect(current_path).to eq('/heroes')
     expect(page).to_not have_content("Hero4")
   end

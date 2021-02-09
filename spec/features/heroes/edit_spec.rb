@@ -6,8 +6,8 @@ RSpec.describe "heroes edit page" do
     mount = hero.mounts.create(name: "Mount", level: 20)
     visit "/heroes/#{hero.id}"
 
-    expect(page).to have_button("Update Hero")
-    click_button "Update Hero"
+    expect(page).to have_link("Update Hero")
+    click_link "Update Hero"
     expect(current_path).to eq("/heroes/#{hero.id}/edit")
     fill_in "name", with: "Hero 2"
     fill_in "alive", with: false

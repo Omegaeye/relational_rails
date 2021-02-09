@@ -12,8 +12,8 @@ RSpec.describe "heroes show page", type: :feature do
     expect(page).to have_content(hero.level)
     expect(page).to have_content(hero.created_at)
     expect(page).to have_content(hero.updated_at)
-    expect(page).to have_button("Update Hero")
-    click_button "Update Hero"
+    expect(page).to have_link("Update Hero")
+    click_link "Update Hero"
     expect(current_path).to eq("/heroes/#{hero.id}/edit")
 
     visit "/heroes/#{hero.id}"

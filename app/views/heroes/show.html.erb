@@ -14,14 +14,5 @@
 
     <p>total # of mounts: <%=@hero.mounts.count%></p>
 </div>
-
-<form action="/heroes/<%= @hero.id %>/edit" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="Update Hero"/>
-</form>
-
-<form action="/heroes/<%= @hero.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Extinguish Hero"/>
-</form>
+<%= link_to 'Update Hero', "/heroes/#{@hero.id}/edit" %>
+<%= button_to 'Delete Hero', "/heroes/#{@hero.id}", method: :delete %>
