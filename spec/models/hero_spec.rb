@@ -40,7 +40,7 @@ RSpec.describe Hero do
       Hero.destroy_all
       Mount.destroy_all
       hero1 = Hero.create(name: "Hero", level: 9)
-      mount1 = hero1.mounts.create(name: "Andrew")
+      mount1 = hero1.mounts.create(name: "Andrew", level: 35)
       mount2 = hero1.mounts.create(name: "kupo", level: 34)
 
       expect(hero1.mount_count).to eq(2)

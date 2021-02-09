@@ -1,10 +1,6 @@
 class Mount < ApplicationRecord
   belongs_to :hero
-  validates :name, presence: true
-
-  def self.sorted
-    order('name')
-  end
+  validates :name, :level, presence: true
 
   def self.fly
     where(fly: true)
@@ -16,9 +12,5 @@ class Mount < ApplicationRecord
     else
       where("level > #{threshold}")
     end
-  end
-
-  def self.name_search(name)
-    where("name ILIKE ?", "%#{name.capitalize}%")
   end
 end

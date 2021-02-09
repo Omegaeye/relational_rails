@@ -11,7 +11,8 @@ RSpec.describe "heroes edit page" do
     expect(current_path).to eq("/heroes/#{hero.id}/edit")
     fill_in "name", with: "Hero 2"
     fill_in "alive", with: false
-    click_button "submit"
+    fill_in "level", with: 5
+    click_button "Update Hero"
     expect(current_path).to eq("/heroes/#{hero.id}")
     expect(page).to have_content("Hero 2")
     expect(page).to have_content("#{hero.level}")

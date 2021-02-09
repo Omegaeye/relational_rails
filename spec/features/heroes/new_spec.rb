@@ -10,7 +10,7 @@ RSpec.describe "heroes new page" do
     click_link "Create New Hero"
     expect(current_path).to eq("/heroes/new")
     fill_in "name", with: "hero3"
-    click_button "submit"
+    click_button "Create Hero"
     expect(current_path).to eq("/heroes")
     expect(page).to have_content("Hero3")
   end

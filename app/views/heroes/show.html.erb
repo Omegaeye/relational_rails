@@ -4,14 +4,11 @@
 
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h1><%= @hero.name %></h1>
-
     <p>level: <%= @hero.level %></p>
     <p>alive?: <%= @hero.alive %></p>
     <p>created_at: <%= @hero.created_at %></p>
     <p>updated_at: <%= @hero.updated_at %></p>
-
     <%= link_to 'Mounts', "/heroes/#{@hero.id}/mounts" %>
-
     <p>total # of mounts: <%=@hero.mounts.count%></p>
 </div>
 <%= link_to 'Update Hero', "/heroes/#{@hero.id}/edit" %>
