@@ -12,16 +12,4 @@ class Player < ApplicationRecord
       where("age > ?", num)
     end
   end
-
-  def self.sorted
-    order("name")
-  end
-
-  def self.name_search(name)
-    if name == ''
-      where(starter: true)
-    else
-      where("name ILIKE ?", "%#{name.capitalize}%")
-    end
-  end
 end

@@ -10,19 +10,14 @@
   <p><b>Updated At: </b><%= @team.updated_at %></p>
   <p><b>Total Players: </b><%= @team.player_count %></p>
 
-  <form style="padding:10px;" action="/teams/<%= @team.id  %>/edit" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="submit" value="Update Team">
-  </form>
-
-  <form style="padding:10px;" action="/teams/<%= @team.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Team"/>
-  </form>
+  <div style="padding:10px">
+    <%= button_to "Update Team", "/teams/#{@team.id}/edit", method: :get %>
+  </div>
+  <div style="padding:10px">
+    <%= button_to "Delete Team", "/teams/#{@team.id}", method: :delete %>
+  </div>
 </div>
 
-<form style="padding:20px;" action="/teams/<%= @team.id %>/players/new" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="Add New Player">
-</form>
+<div style="padding:20px">
+  <%= button_to "Add New Player", "/teams/#{@team.id}/players/new", method: :get %>
+</div>

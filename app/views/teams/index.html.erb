@@ -6,7 +6,6 @@
 <%= form_tag "/teams", method: :patch do %>
   <%= label_tag  %>
   <%= text_field_tag :name %>
-
   <%= submit_tag 'Search Team By Name' %>
 <% end %>
 
@@ -14,28 +13,39 @@
   <%= link_to "Sort Teams By Number of Players", "/teams?sort=asc" %>
 </div>
 
-<% @teams.each do |team| %>
-  <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
-    <h2><a href="/teams/<%= team.id %>"><%= team.city %> <%= team.name %></a></h2>
-    <p><b>Rank: </b><%= team.rank %></p>
-    <p><b>First Place Team: </b><%= team.first_place %></p>
-    <p><b>Created At: </b><%= team.created_at %></p>
-    <p><b>Player Count: </b><%= team.players.count %></p>
-    <form style="padding:10px" action="/teams/<%= team.id %>/edit" method="get">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="submit" value="Update Team">
-    </form>
-
-    <form style="padding:10px" action="/teams/<%= team.id %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Team"/>
-    </form>
-  </div>
+<% if params[:sort] %>
+  <% @teams.sorted_by_created_at.each do |team| %>
+    <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+      <h2><a href="/teams/<%= team.id %>"><%= team.city %> <%= team.name %></a></h2>
+      <p><b>Player Count: </b><%= team.players.count %></p>
+      <p><b>Rank: </b><%= team.rank %></p>
+      <p><b>First Place Team: </b><%= team.first_place %></p>
+      <p><b>Created At: </b><%= team.created_at %></p>
+      <div style="padding:10px">
+        <%= button_to "Update Team", "/teams/#{team.id}/edit", method: :get %>
+      </div>
+      <div style="padding:10px">
+        <%= button_to "Delete Team", "/teams/#{team.id}", method: :delete %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <% @teams.each do |team| %>
+    <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+      <h2><a href="/teams/<%= team.id %>"><%= team.city %> <%= team.name %></a></h2>
+      <p><b>Rank: </b><%= team.rank %></p>
+      <p><b>First Place Team: </b><%= team.first_place %></p>
+      <p><b>Created At: </b><%= team.created_at %></p>
+      <div style="padding:10px">
+        <%= button_to "Update Team", "/teams/#{team.id}/edit", method: :get %>
+      </div>
+      <div style="padding:10px">
+        <%= button_to "Delete Team", "/teams/#{team.id}", method: :delete %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
-
-<form style="padding:20px;" action="/teams/new" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" value="New Team">
-</form>
+<div style="padding:20px">
+  <%= button_to "New Team", "/teams/new", method: :get %>
+</div>

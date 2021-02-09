@@ -1,17 +1,11 @@
 <a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
 
-<form action="/players/<%= @player.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-
-  <label for="name">Name:</label><br>
-  <input id="name" type="text" name="player[name]" value="<%= @player.name %>"><br>
-
-  <label for="age">Age:</label><br>
-  <input id="age" type="text" name="player[age]" value="<%= @player.age %>"><br><br>
-
-  <label for="position">Position:</label><br>
-  <input id="position" type="text" name="player[position]" value="<%= @player.position %>"><br><br>
-
-  <input type="submit" value="Update">
-</form>
+<%= form_with url: "/players/#{@player.id}", method: :patch, local: true do |f| %>
+  <%= f.label 'name:' %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label 'age:' %><br>
+  <%= f.number_field :age %><br>
+  <%= f.label "position:" %><br>
+  <%= f.text_field :position %><br>
+  <%= f.submit 'Update' %><br>
+<% end %>
