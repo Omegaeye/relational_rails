@@ -10,7 +10,7 @@
 <h1>All Mounts</h1>
 
 
-<% @mounts.fly.each do |mount| %>
+<% @mounts.each do |mount| %>
 <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
   <h3><a href="/mounts/<%= mount.id %>"><%= mount.name %></a></h3>
   <p>hero_id: <%= mount.hero_id %></p>
@@ -19,11 +19,7 @@
   <p>created_at: <%= mount.created_at %></p>
   <p>updated_at: <%= mount.updated_at %></p>
   <%= link_to "#{mount.hero.name} page", "/heroes/#{mount.hero.id}" %><br>
-  <a href="/mounts/<%= mount.id  %>/edit">Edit</a>
-  <form action="/mounts/<%= mount.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
+  <%= link_to 'Update Mount', "/mounts/#{mount.id}/edit" %>
+  <%= button_to 'Delete Mount', "/mounts/#{mount.id}", method: :delete %>
 </div>
 <% end %>

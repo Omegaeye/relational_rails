@@ -11,5 +11,8 @@ RSpec.describe "child index page" do
     expect(page).to have_content("#{mount.fly}")
     expect(page).to have_content("#{mount.created_at}")
     expect(page).to have_content("#{mount.updated_at}")
+
+    expect(page).to have_button('Search Name')
+    click_button('Search Name')
   end
 end
