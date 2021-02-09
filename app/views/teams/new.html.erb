@@ -1,13 +1,9 @@
 <a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
 
-<form action="/teams" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-  <label for="name">Name:</label><br>
-  <input id="name" type="text" name="team[name]" value=""><br>
-
-  <label for="city">City:</label><br>
-  <input id="city" type="text" name="team[city]" value=""><br><br>
-
-  <input type="submit" value="Create">
-</form>
+<%= form_with url: "/teams", method: :post, local: true do |f| %>
+  <%= f.label 'city:' %><br>
+  <%= f.text_field :city %><br>
+  <%= f.label 'name:' %><br>
+  <%= f.text_field :name %><br>
+  <%= f.submit 'Create New Team' %><br>
+<% end %>

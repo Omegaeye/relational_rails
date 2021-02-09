@@ -10,13 +10,10 @@
   <p><b>Team ID: </b><%= @player.team_id %></p>
   <a href="/teams/<%= @player.team.id %>"><h3><%= @player.team.name %></h3></a>
 
-  <form style="padding:10px;" action="/players/<%= @player.id  %>/edit" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="submit" value="Update Player">
-  </form>
-  <form style="padding:10px;" action="/players/<%= @player.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Player"/>
-  </form>
+  <div style="padding:10px">
+    <%= button_to "Update Player", "/players/#{@player.id}/edit", method: :get %>
+  </div>
+  <div style="padding:10px">
+    <%= button_to "Delete Player", "/players/#{@player.id}", method: :delete %>
+  </div>
 </div>

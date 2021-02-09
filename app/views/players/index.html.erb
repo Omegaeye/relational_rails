@@ -2,11 +2,9 @@
 
 <h1 style="padding-left:10px">All Players</h1>
 
-<%= form_tag "/players", method: :patch do %>
-  <%= label_tag  %>
-  <%= text_field_tag :name%>
-
-  <%= submit_tag 'Search Player By Name' %>
+<%= form_with url: "/players", method: :patch, local: true do |f| %>
+  <%= f.text_field :name%>
+  <%= f.submit 'Search Player By Name' %>
 <% end %>
 
 <% @players.each do |player| %>
@@ -20,14 +18,12 @@
       <p><b>Updated At: </b><%= player.updated_at %></p>
       <p><b>Team ID: </b><%= player.team_id %></p>
       <a href="/teams/<%= player.team.id %>"><h3><%= player.team.name %></h3></a>
-      <form style="padding:10px;" action="/players/<%= player.id  %>/edit" method="get">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="submit" value="Update Player">
-      </form>
-      <form style="padding:10px;" action="/players/<%= player.id %>" method="POST">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete Player"/>
-      </form>
+
+      <div style="padding:10px">
+        <%= button_to "Update Player", "/players/#{player.id}/edit", method: :get %>
+      </div>
+      <div style="padding:10px">
+        <%= button_to "Delete Player", "/players/#{player.id}", method: :delete %>
+      </div>
     </div>
 <% end %>

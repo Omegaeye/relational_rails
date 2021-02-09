@@ -3,9 +3,9 @@ class TeamsController < ApplicationController
     if params[:sort]
       @teams = Team.number_of_players
     elsif params[:name]
-      @teams = Team.name_search(params[:name]).sorted
+      @teams = Team.name_search(params[:name]).sorted_by_created_at
     else
-      @teams = Team.sorted
+      @teams = Team.sorted_by_created_at
     end
   end
 
@@ -42,8 +42,8 @@ class TeamsController < ApplicationController
   def update
     team = Team.find(params[:id])
     team.update({
-      name: params[:team][:name].capitalize,
-      city: params[:team][:city].capitalize,
+      name: params[:name],
+      city: params[:city],
       updated_at: Time.now
       })
     team.save
@@ -52,8 +52,8 @@ class TeamsController < ApplicationController
 
   def create
     team = Team.new({
-      name: params[:team][:name].capitalize,
-      city: params[:team][:city].capitalize,
+      name: params[:name],
+      city: params[:city],
       rank: Team.all.count + 1,
       first_place: false,
       created_at: Time.now,
