@@ -14,7 +14,7 @@ class MountsController < ApplicationController
   def create
     @hero = Hero.find(params[:id])
     mount = Mount.new({
-     name: params[:mount][:name].capitalize,
+     name: params[:name].capitalize,
      fly: true,
      level: 1,
      created_at: Time.now,
@@ -38,9 +38,9 @@ class MountsController < ApplicationController
   def update
     mount = Mount.find(params[:id])
     mount.update({
-    name: params[:mount][:name].capitalize,
-    fly: params[:mount][:fly],
-    level: params[:mount][:level],
+    name: params[:name].capitalize,
+    fly: params[:fly],
+    level: params[:level],
     updated_at: Time.now
     })
   mount.save

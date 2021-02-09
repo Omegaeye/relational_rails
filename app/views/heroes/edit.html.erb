@@ -1,11 +1,9 @@
-<form action="/heroes/<%= @hero.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <label for="name">Name: </label><br>
-  <input id="name" type='text' name='hero[name]' /><br/>
-  <p>Alive status:</p>
-  <input id='alive' type='text' name='hero[alive]'/><br/>
-  <p>level:</p>
-  <input id='level' type='integer' name='hero[level]'/><br/>
-  <input type='submit' value='submit'/>
-</form>
+<%= form_with url: "/heroes/#{@hero.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :alive? %>
+  <%= f.text_field :alive %>
+  <%= f.label :level %>
+  <%= f.number_field :level %>
+  <%= f.submit 'Update Hero' %>
+<% end %>

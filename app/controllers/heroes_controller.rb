@@ -3,7 +3,7 @@ class HeroesController < ApplicationController
     if params[:sort]
       @heros = Hero.number_of_mounts
     elsif params[:name]
-      @heros = Hero.name_search(params[:name])
+      @heros = Hero.name_search(params[:name]).sorted_by_created_at
     else
       @heros = Hero.sorted_by_created_at
     end
@@ -28,7 +28,7 @@ class HeroesController < ApplicationController
 
   def create
     hero = Hero.new({
-    name: params[:hero][:name].capitalize,
+    name: params[:name].capitalize,
     alive: true,
     level: 1,
     created_at: Time.now,
@@ -51,9 +51,9 @@ class HeroesController < ApplicationController
   def update
     @hero = Hero.find(params[:id])
     @hero.update({
-    name: params[:hero][:name].capitalize,
-    alive: params[:hero][:alive],
-    level: params[:hero][:level],
+    name: params[:name].capitalize,
+    alive: params[:alive],
+    level: params[:level],
     updated_at: Time.now
     })
   @hero.save

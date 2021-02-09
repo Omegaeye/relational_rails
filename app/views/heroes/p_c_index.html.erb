@@ -3,16 +3,14 @@
 <%= link_to 'Mount Index', "/mounts" %><br>
 <%= link_to "Back to #{@hero.name} page", "/heroes/#{@hero.id}" %><br>
 <%= link_to 'Sort by name', "/heroes/#{@hero.id}/mounts?sort=asc" %>
-<%= form_tag "/heroes/#{@hero.id}/mounts", method: :patch do %>
-  <%= label_tag %>
-  <%= number_field_tag :level %>
-  <%= submit_tag 'All Mounts above level' %>
+<%= form_with url: "/heroes/#{@hero.id}/mounts", method: :patch, local: true do |f| %>
+  <%= f.label :level %>
+  <%= f.number_field :level %>
+  <%= f.submit 'All Mounts above level' %>
 <% end %>
 
 <h1><%= "#{@hero.name}" %> Mounts</h1>
-
 <%= link_to 'Add New Mount', "/heroes/#{@hero.id}/mounts/new" %><br>
-
   <% @mounts.each do |mount| %>
     <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
       <h2><a href="/mounts/<%= mount.id %>"> <%= mount.name %></a></h2>
