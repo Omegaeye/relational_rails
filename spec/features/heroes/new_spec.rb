@@ -13,5 +13,7 @@ RSpec.describe "heroes new page" do
     click_button "Create Hero"
     expect(current_path).to eq("/heroes")
     expect(page).to have_content("Hero3")
+
+    expect("Hero3").to_not appear_before("Hero2", only_text: true)
   end
 end

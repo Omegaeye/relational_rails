@@ -1,41 +1,62 @@
-<%= link_to 'Intro Page', "/" %>
-<%= link_to 'Hero Index', "/heroes" %>
-<%= link_to 'Mount Index', "/mounts" %><br>
-<%= link_to 'Sort by #of Mounts', '/heroes?sort=asc' %>
+<style>
+
+  body {
+    background-image: url(https://mcdn.wallpapersafari.com/medium/9/55/Gzc6nl.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+ div {
+   color:yellow;
+   border:solid black;
+   margin: 10px;
+ }
+
+</style>
+
+<body>
+<%= link_to 'Intro Page', "/"                       , {:style => 'color:white'} %>
+<%= link_to 'Hero Index', "/heroes"                 , {:style => 'color:white'}%>
+<%= link_to 'Mount Index', "/mounts"                , {:style => 'color:white'}%><br>
+<%= link_to 'Sort by #of Mounts', '/heroes?sort=asc', {:style => 'color:white'}%>
 <%= form_with url: '/heroes', method: :patch, local: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label          :name %>
+  <%= f.text_field     :name %>
   <%= f.submit 'Search Name' %>
 <% end %>
 
-<h1>All Heroes</h1>
-<%= link_to 'Create New Hero', "/heroes/new" %>
+<h1 style="color:cyan">All Heroes</h1>
+<%= link_to 'Create New Hero', "/heroes/new", {:style => 'color:white'} %>
 <% if params[:sort]%>
   <% @heros.each do |hero| %>
     <%hero.mount_count%>
-       <div style="border:solid white;background:lightblue;color:black;padding:15px;font-size:18px">
+       <div>
          <h3>
-           <%= link_to "#{hero.name} has #{hero.mount_count} mounts", "/heroes/#{hero.id}" %>
+           <%= link_to "#{hero.name} has #{hero.mount_count} mounts", "/heroes/#{hero.id}", {:style => 'color:white'} %>
          </h3>
-           <p>level: <%= hero.level %></p>
-           <p>alive?: <%= hero.alive %></p>
+           <p>     level: <%= hero.level      %></p>
+           <p>    alive?: <%= hero.alive      %></p>
            <p>created_at: <%= hero.created_at %></p>
            <p>updated_at: <%= hero.updated_at %></p>
-          <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit" %>
-          <%= button_to 'Delete', "/heroes/#{hero.id}", method: :delete %>
+          <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit", {:style => 'color:white'} %>
+          <%= button_to 'Delete', "/heroes/#{hero.id}"        , method: :delete %>
         </div>
       <% end %>
   <% else %>
 <% @heros.each do |hero| %>
-  <div style="border:solid white;background:yellow;color:blue;padding:15px;font-size:18px">
-    <h3><a href="/heroes/<%= hero.id %>"><%= hero.name %></a></h3>
-    <p>total # of mounts: <%=hero.mount_count%></p>
-      <p>level: <%= hero.level %></p>
-      <p>alive?: <%= hero.alive %></p>
-      <p>created_at: <%= hero.created_at %></p>
-      <p>updated_at: <%= hero.updated_at %></p>
-      <%= link_to 'Update Hero', "/heroes/#{hero.id}/edit" %>
-      <%= button_to 'Delete', "/heroes/#{hero.id}", method: :delete %>
-   </div>
-   <% end %>
- <% end %>
+  <div style="color:yellow">
+    <h3>
+      <%= link_to "#{hero.name}", "/heroes/#{hero.id}", {:style => 'color:white'} %>
+    </h3>
+      <p>Mount Count: <%=hero.mount_count %></p>
+      <p>      Level: <%= hero.level      %></p>
+      <p>     Alive?: <%= hero.alive      %></p>
+      <p> Created At: <%= hero.created_at %></p>
+      <p> Updated At: <%= hero.updated_at %></p>
+      <%= link_to   'Update Hero', "/heroes/#{hero.id}/edit", {:style => 'color:white'} %>
+      <%= button_to 'Delete'     , "/heroes/#{hero.id}"        , method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</body>

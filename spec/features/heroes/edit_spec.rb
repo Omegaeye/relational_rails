@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "heroes edit page" do
   it "parent index has update link and it updates parent" do
     hero = Hero.create(name: 'Hero', alive: true, level: 1)
-    mount = hero.mounts.create(name: "Mount", level: 20)
+    mount = hero.mounts.create(name: "Mount", level: 20, fly: true)
     visit "/heroes/#{hero.id}"
 
     expect(page).to have_link("Update Hero")
