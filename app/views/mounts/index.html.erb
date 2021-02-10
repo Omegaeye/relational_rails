@@ -1,26 +1,50 @@
-<%= link_to 'Intro Page', "/" %>
-<%= link_to 'Hero Index', "/heroes" %>
-<%= link_to 'Mount Index', "/mounts" %><br>
+<style>
+  body {
+    background-color:black
+  }
+
+  h1 {
+    color:cyan
+  }
+
+  p {
+    color:black
+  }
+
+  div {
+    border:solid white;
+    background:green;
+    color:black;
+    padding:15px;
+    font-size:18px;
+  }
+  </style>
+
+<body>
+<%= link_to 'Intro Page', "/"       , {:style => 'color:white'} %>
+<%= link_to 'Hero Index', "/heroes" , {:style => 'color:white'} %>
+<%= link_to 'Mount Index', "/mounts", {:style => 'color:white'} %><br>
 <%= form_with url: '/mounts', method: :patch, local: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label      :name     %>
+  <%= f.text_field :name     %>
   <%= f.submit 'Search Name' %>
 <% end %>
 
-
 <h1>All Mounts</h1>
 
-
 <% @mounts.each do |mount| %>
-<div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
-  <h3><a href="/mounts/<%= mount.id %>"><%= mount.name %></a></h3>
-  <p>hero_id: <%= mount.hero_id %></p>
-  <p>level: <%= mount.level %></p>
-  <p>fly?: <%= mount.fly %></p>
+<div>
+  <%= link_to "#{mount.name}", "/mounts/#{mount.id}", {:style => 'color:white'} %>
+
+  <p>   hero_id: <%= mount.hero_id    %></p>
+  <p>     level: <%= mount.level      %></p>
+  <p>      fly?: <%= mount.fly        %></p>
   <p>created_at: <%= mount.created_at %></p>
   <p>updated_at: <%= mount.updated_at %></p>
-  <%= link_to "#{mount.hero.name} page", "/heroes/#{mount.hero.id}" %><br>
-  <%= link_to 'Update Mount', "/mounts/#{mount.id}/edit" %>
-  <%= button_to 'Delete Mount', "/mounts/#{mount.id}", method: :delete %>
+
+  <%= link_to   "#{mount.hero.name}'s Page", "/heroes/#{mount.hero.id}", {:style => 'color:white'} %><br>
+  <%= link_to   'Update Mount', "/mounts/#{mount.id}/edit"             , {:style => 'color:white'} %>
+  <%= button_to 'Delete Mount', "/mounts/#{mount.id}"                  , method: :delete           %>
 </div>
 <% end %>
+</body>

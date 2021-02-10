@@ -1,8 +1,31 @@
-<%= link_to 'Intro Page', "/" %>
-<%= link_to 'Hero Index', "/heroes" %>
-<%= link_to 'Mount Index', "/mounts" %><br>
-<%= link_to "Back to #{@hero.name} page", "/heroes/#{@hero.id}" %><br>
-<%= link_to 'Sort by name', "/heroes/#{@hero.id}/mounts?sort=asc" %>
+<style>
+  body {
+    background-color:black
+  }
+
+  h1 {
+    color:cyan
+  }
+
+  p {
+    color:red
+  }
+
+  div {
+    border:solid white;
+    background:lightblue;
+    color:black;
+    padding:15px;
+    font-size:18px;
+  }
+  </style>
+
+<body>
+<%= link_to 'Intro Page', "/", {:style => 'color:white'} %>
+<%= link_to 'Hero Index', "/heroes", {:style => 'color:white'} %>
+<%= link_to 'Mount Index', "/mounts", {:style => 'color:white'} %><br>
+<%= link_to "Back to #{@hero.name} page", "/heroes/#{@hero.id}", {:style => 'color:white'} %><br>
+<%= link_to 'Sort by name', "/heroes/#{@hero.id}/mounts?sort=asc", {:style => 'color:white'} %>
 <%= form_with url: "/heroes/#{@hero.id}/mounts", method: :patch, local: true do |f| %>
   <%= f.label :level %>
   <%= f.number_field :level %>
@@ -10,16 +33,17 @@
 <% end %>
 
 <h1><%= "#{@hero.name}" %> Mounts</h1>
-<%= link_to 'Add New Mount', "/heroes/#{@hero.id}/mounts/new" %><br>
+<%= link_to 'Add New Mount', "/heroes/#{@hero.id}/mounts/new", {:style => 'color:white'} %><br>
   <% @mounts.each do |mount| %>
-    <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+    <div>
       <h2><a href="/mounts/<%= mount.id %>"> <%= mount.name %></a></h2>
         <p><b>fly?:       </b><%= mount.fly        %></p>
         <p><b>level:      </b><%= mount.level      %></p>
         <p><b>Created At: </b><%= mount.created_at %></p>
         <p><b>Updated At: </b><%= mount.updated_at %></p>
         <p><b>Hero ID:    </b><%= mount.hero_id    %></p>
-      <%= link_to   'Update Mount', "/mounts/#{mount.id}/edit"             %>
+      <%= link_to   'Update Mount', "/mounts/#{mount.id}/edit", {:style => 'color:white'} %>
       <%= button_to 'Delete'      , "/mounts/#{mount.id}", method: :delete %>
     </div>
   <% end %>
+</body>
