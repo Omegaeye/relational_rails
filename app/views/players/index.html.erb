@@ -1,14 +1,26 @@
-<a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
+<style>
+body {
+  background-image: url('https://wallpaperaccess.com/full/1580197.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 
-<h1 style="padding-left:10px">All Players</h1>
+<center>
+<h2><a href="/" style="color:white;">Intro Page</a><a style="color:white;padding-left:10px" href="/teams">Team Index</a><a style="color:white;padding-left:10px" href="/players">Player Index</a></h2>
 
+<h1 style="color:white;font-size:42px;border:solid white">All Players</h1>
+
+<div style="padding:20px">
 <%= form_with url: "/players", method: :patch, local: true do |f| %>
   <%= f.text_field :name%>
   <%= f.submit 'Search Player By Name' %>
 <% end %>
+</div>
 
 <% @players.each do |player| %>
-    <div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+    <div style="width:500px;margin:0px 100px 100px 100px;border:solid black;background-image: url('https://www.ignitionapg.com/wp-content/uploads/2017/03/MLB-Background-1.jpg');color:black;padding:15px;font-size:18px">
       <h2><a href="/players/<%= player.id %>"> <%= player.name %></a></h2>
       <p><b>Name: </b><%= player.name %></p>
       <p><b>Position: </b><%= player.position %></p>
@@ -27,3 +39,4 @@
       </div>
     </div>
 <% end %>
+</center>

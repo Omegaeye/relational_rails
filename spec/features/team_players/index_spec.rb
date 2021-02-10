@@ -31,12 +31,24 @@ RSpec.describe "players index page", type: :feature do
     expect(page).to have_content("#{player3.created_at}")
     expect(page).to have_content("#{player3.updated_at}")
 
+    expect(player1.name).to appear_before(player2.name)
+    expect(player2.name).to appear_before(player3.name)
+
     expect(page).to have_link("Sort All #{team.name} Players By Name")
     click_link("Sort All #{team.name} Players By Name")
     expect(current_path).to eq("/teams/#{team.id}/players")
+    expect(player1.name).to appear_before(player3.name)
+    expect(player3.name).to appear_before(player2.name)
 
     expect(page).to have_button("Show All Players Over This Age")
     click_button("Show All Players Over This Age")
     expect(current_path).to eq("/teams/#{team.id}/players")
+    fill_in "age_of", with: "28"
+    click_on "Show All Players Over This Age"
+    expect("Andrew").to appear_before("Khoa")
+    fill_in "age_of", with: "20"
+    click_on "Show All Players Over This Age"
+    expect("Andrew").to appear_before("Khoa")
+    expect("Khoa").to appear_before("Janis")
   end
 end

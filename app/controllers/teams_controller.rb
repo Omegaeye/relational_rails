@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
       @players = @team.players.over_age(params[:age_of])
     else
       @team = Team.find(params[:id])
-      @players = @team.players
+      @players = @team.players.sorted_by_created_at
     end
   end
 

@@ -1,6 +1,16 @@
-<a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
+<style>
+body {
+  background-image: url('https://wallpaperaccess.com/full/1580197.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 
-<div style="border:solid white;background:lightgrey;color:black;padding:15px;font-size:18px">
+<center>
+<h2><a href="/" style="color:white;">Intro Page</a><a style="color:white;padding-left:10px" href="/teams">Team Index</a><a style="color:white;padding-left:10px" href="/players">Player Index</a></h2>
+
+<div style="width:500px;margin:50px 100px 50px 100px;border:solid black;background-image: url('https://www.ignitionapg.com/wp-content/uploads/2017/03/MLB-Background-1.jpg');color:black;padding:15px;font-size:18px">
   <h2><%= @player.name %></h2>
   <p><b>Age: </b><%= @player.age %></p>
   <p><b>Position: </b><%= @player.position %></p>
@@ -17,3 +27,4 @@
     <%= button_to "Delete Player", "/players/#{@player.id}", method: :delete %>
   </div>
 </div>
+</center>
