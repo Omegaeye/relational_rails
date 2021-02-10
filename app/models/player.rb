@@ -7,7 +7,7 @@ class Player < ApplicationRecord
 
   def self.over_age(num)
     if num == ''
-      where("age > 0")
+      where("age > 0").order("created_at")
     else
       where("age > ?", num)
     end

@@ -1,11 +1,24 @@
-<a href="/">Intro Page</a><a style="padding-left:10px" href="/teams">Team Index</a><a style="padding-left:10px" href="/players">Player Index</a>
+<style>
+body {
+  background-image: url('https://wallpaperaccess.com/full/1580197.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 
+<center>
+<h2><a href="/" style="color:white;">Intro Page</a><a style="color:white;padding-left:10px" href="/teams">Team Index</a><a style="color:white;padding-left:10px" href="/players">Player Index</a></h2>
+
+<div style="padding:20px;color:white;">
 <%= form_with url: "/players/#{@player.id}", method: :patch, local: true do |f| %>
   <%= f.label 'name:' %><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name %><br><br>
   <%= f.label 'age:' %><br>
-  <%= f.number_field :age %><br>
+  <%= f.number_field :age %><br><br>
   <%= f.label "position:" %><br>
-  <%= f.text_field :position %><br>
+  <%= f.text_field :position %><br><br>
   <%= f.submit 'Update' %><br>
 <% end %>
+</div>
+</center>
